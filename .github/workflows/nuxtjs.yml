@@ -31,10 +31,10 @@ jobs:
       - name: Detect package manager
         id: detect-package-manager
         run: |
-          if [ -f "yarn.lock" ]; then
+          if [ -f "nuxt/yarn.lock" ]; then
             echo "manager=yarn" >> $GITHUB_OUTPUT
             echo "command=install" >> $GITHUB_OUTPUT
-          elif [ -f "package-lock.json" ]; then
+          elif [ -f "nuxt/package-lock.json" ]; then
             echo "manager=npm" >> $GITHUB_OUTPUT
             echo "command=ci" >> $GITHUB_OUTPUT
           else
@@ -57,9 +57,9 @@ jobs:
         uses: actions/cache@v4
         with:
           path: |
-            dist
-            .nuxt
-          key: ${{ runner.os }}-nuxt-build-${{ hashFiles('nuxt/dist') }}
+            nuxt/dist
+            nuxt/.nuxt
+          key: ${{ runner.os }}-nuxt-build-${{ hashFiles('nuxt/package-lock.json') }}
           restore-keys: |
             ${{ runner.os }}-nuxt-build-
 
@@ -72,7 +72,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ./dist
+          path: ./nuxt/dist
 
   deploy:
     environment:
