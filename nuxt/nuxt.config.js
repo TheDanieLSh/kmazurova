@@ -1,7 +1,7 @@
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    title: 'kmazurova',
+    title: 'Ксения Мазурова',
     htmlAttrs: {
       lang: 'en'
     },
@@ -52,5 +52,9 @@ export default {
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
-  }
+  },
+  router: {
+    base: 'thedanielsh.github.io/kmazurova/'
+  },
+  target: 'static'
 }
