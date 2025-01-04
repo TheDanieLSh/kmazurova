@@ -54,7 +54,7 @@ export default {
   build: {
   },
   router: {
-    base: 'thedanielsh.github.io/kmazurova/'
+    base: process.env.ROUTER_BASE || '/',
   },
   target: 'static'
 }
