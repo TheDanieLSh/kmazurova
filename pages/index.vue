@@ -16,7 +16,7 @@ export default Vue.extend({
   .indexWrapper {
     width: 100%;
     height: 100vh;
-    background-image: url('/images/km_index_desktop.jpg');
+    background-image: url('~@/static/images/km_index_desktop.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
