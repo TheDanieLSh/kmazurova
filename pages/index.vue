@@ -1,6 +1,22 @@
 <template>
-  <div class="indexWrapper">
-
+  <div class="index__wrapper">
+    <div class="index__initials">К. М.</div>
+    <div class="index__icons">
+      <a
+        href="https://t.me/exaggerate_escapism"
+        class="icon"
+        target="_blank"
+      >
+        <img src="~/static/images/tg.svg" />
+      </a>
+      <a
+        href="https://vk.com/overwhelming_utter_devastation"
+        class="icon"
+        target="_blank"
+      >
+        <img src="~/static/images/vk.svg" />
+      </a>
+    </div>
   </div>
 </template>
 
@@ -13,12 +29,47 @@ export default Vue.extend({
 </script>
 
 <style lang="scss">
-  .indexWrapper {
-    width: 100%;
-    height: 100vh;
-    background-image: url('~@/static/images/km_index_desktop.jpg');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
+  .index {
+    
+    &__wrapper {
+      --left-indent: 5rem;
+
+      width: 100%;
+      height: 100vh;
+      background-image: url('~@/static/images/km_index_desktop.jpg');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+
+    &__initials {
+      position: relative;
+      margin-left: var(--left-indent);
+      color: #ffda8c;
+      font-size: 18rem;
+    }
+
+    &__icons {
+      position: relative;
+      display: flex;
+      margin-left: var(--left-indent);
+      gap: 2rem;
+
+      .icon {
+      display: block;
+      width: 6rem;
+      height: 6rem;
+      transition: 0.2s;
+      &:hover {
+        transform: scale(1.1);
+      }
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+      }
+    }
+    }
   }
 </style>
