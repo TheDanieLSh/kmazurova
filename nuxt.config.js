@@ -40,6 +40,8 @@ export default {
     '@nuxtjs/axios',
     // https://go.nuxtjs.dev/content
     '@nuxt/content',
+    
+    '@nuxtjs/dotenv',
   ],
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
@@ -55,7 +57,7 @@ export default {
   build: {
   },
   router: {
-    base: process.env.ROUTER_BASE || '/',
+    base: process.env.ROUTER_BASE,
   },
   target: 'static'
 }
