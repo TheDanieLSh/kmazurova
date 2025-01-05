@@ -55,10 +55,6 @@ export default {
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
-    publicPath: '/kmazurova/_nuxt/',
-    extend(config, { isDev, isClient }) {
-      console.log('Webpack Config:', config.output.publicPath);
-    }
   },
   router: {
     base: process.env.ROUTER_BASE,
