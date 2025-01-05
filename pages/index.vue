@@ -19,6 +19,20 @@
           </div>
           <div class="text">Прайс</div>
         </button>
+        <button>
+          <div class="sign">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+              <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+              <g id="SVGRepo_iconCarrier">
+                <path
+                  d="M8 12H8.01M12 12H12.01M16 12H16.01M21.0039 12C21.0039 16.9706 16.9745 21 12.0039 21C9.9675 21 3.00463 21 3.00463 21C3.00463 21 4.56382 17.2561 3.93982 16.0008C3.34076 14.7956 3.00391 13.4372 3.00391 12C3.00391 7.02944 7.03334 3 12.0039 3C16.9745 3 21.0039 7.02944 21.0039 12Z"
+                  stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+              </g>
+            </svg>
+          </div>
+          <div class="text">Задать вопрос</div>
+        </button>
       </div>
       <div class="index__socials">
         <a href="https://t.me/exaggerate_escapism" class="icon" target="_blank">
@@ -84,7 +98,7 @@ export default Vue.extend({
       cursor: pointer;
       position: relative;
       overflow: hidden;
-      transition: all 0.3s ease;
+      transition: all 0.4s ease;
       box-shadow: 0.2rem 0.2rem 1rem rgba(0, 0, 0, 0.199);
       background-color: black;
 
@@ -95,7 +109,7 @@ export default Vue.extend({
         flex-shrink: 0;
         width: var(--button-size);
         height: 100%;
-        transition: all 0.3s ease;
+        transition: all 0.4s ease;
 
         svg {
           width: calc(var(--button-size) * var(--svg-scale));
@@ -105,19 +119,20 @@ export default Vue.extend({
       }
 
       .text {
-        position: absolute;
-        left: var(--button-size);
+        position: relative;
         opacity: 0;
         color: white;
         font-size: calc(var(--button-size) * 0.2);
         font-weight: 600;
         white-space: nowrap;
-        transition: opacity 0.3s ease;
+        transition: opacity 0.4s ease, max-width 0.4s ease;
+        max-width: 0;
       }
 
       &:hover {
-        width: calc(var(--button-size) * 2.2);
+        width: calc(var(--button-size) * 2.7);
         border-radius: calc(var(--button-size) / 1.5);
+        padding-right: 2rem;
 
         .sign {
           svg {
@@ -127,6 +142,7 @@ export default Vue.extend({
 
         .text {
           opacity: 1;
+          max-width: 10rem;
         }
       }
 
@@ -155,6 +171,10 @@ export default Vue.extend({
         width: 100%;
         height: 100%;
         object-fit: contain;
+      }
+
+      &:active {
+        transform: translate(0.2rem, 0.2rem);
       }
     }
   }
