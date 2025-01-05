@@ -40,7 +40,7 @@ export default {
     '@nuxtjs/axios',
     // https://go.nuxtjs.dev/content
     '@nuxt/content',
-    
+
     '@nuxtjs/dotenv',
   ],
 
@@ -55,6 +55,7 @@ export default {
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
+    publicPath: '/kmazurova/_nuxt/'
   },
   router: {
     base: process.env.ROUTER_BASE,
