@@ -2,19 +2,22 @@
   <div class="index">
     <img class="bg_guy" src="~@/static/images/km_index_desktop.jpg" />
     <div class="index__wrapper">
-      <div class="index__initials">К. М.</div>
+      <h1 class="index__initials">К. М.</h1>
       <div class="index__menu">
         <IndexMenuButton 
           svgPath="images/index/price.svg"
           text="Прайс"
+          link=""
         />
         <IndexMenuButton 
           svgPath="images/index/chat.svg"
           text="Задать вопрос"
+          link="https://t.me/km_creator"
         />
         <IndexMenuButton 
           svgPath="images/index/faq.svg"
           text="F.A.Q."
+          link=""
         />
       </div>
       <div class="index__socials">

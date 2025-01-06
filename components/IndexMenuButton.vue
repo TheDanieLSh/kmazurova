@@ -1,8 +1,8 @@
 <template>
-    <button>
+    <a class="menu-btn" :href=link target="_blank">
         <div class="icon" v-html="svg"></div>
         <div class="text">{{ text }}</div>
-    </button>
+    </a>
 </template>
 
 <script lang="ts">
@@ -19,7 +19,11 @@ export default Vue.extend({
         text: {
             type: String,
             required: true
-        }
+        },
+        link: {
+            type: String,
+            required: true,
+        },
     },
 
     data() {
@@ -46,7 +50,7 @@ export default Vue.extend({
 </script>
 
 <style lang="scss">
-button {
+.menu-btn {
     --button-size: 6rem;
     --svg-scale: 0.6;
 
