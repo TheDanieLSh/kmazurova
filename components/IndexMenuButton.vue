@@ -1,0 +1,116 @@
+<template>
+    <button>
+        <div class="icon" v-html="svg"></div>
+        <div class="text">{{ text }}</div>
+    </button>
+</template>
+
+<script lang="ts">
+import Vue from 'vue';
+
+export default Vue.extend({
+    name: 'IndexMenuButton',
+
+    props: {
+        svgPath: {
+            type: String,
+            required: true
+        },
+        text: {
+            type: String,
+            required: true
+        }
+    },
+
+    data() {
+        return {
+            svg: '',
+        };
+    },
+
+    mounted() {
+        this.loadSVG();
+    },
+
+    methods: {
+        async loadSVG() {
+            try {
+                const fullPath = `${this.$axios.defaults.baseURL}${this.svgPath}`;
+                const response = await this.$axios.get(fullPath, { responseType: 'text' });
+                this.svg = response.data;
+            } catch (error) {
+                console.error('Ошибка при загрузке SVG:', error);
+            }
+        }
+    }
+});
+</script>
+
+<style lang="scss" scoped>
+button {
+    --button-size: 6rem;
+    --svg-scale: 0.4;
+
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: var(--button-size);
+    height: var(--button-size);
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s ease;
+    box-shadow: 0.2rem 0.2rem 1rem rgba(0, 0, 0, 0.199);
+    background-color: black;
+
+    .icon {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+        width: var(--button-size);
+        height: 100%;
+        transition: all 0.4s ease;
+
+        svg {
+            width: calc(var(--button-size) * var(--svg-scale));
+            height: calc(var(--button-size) * var(--svg-scale));
+            transition: transform 0.3s ease;
+        }
+    }
+
+    .text {
+        position: relative;
+        opacity: 0;
+        color: white;
+        font-size: calc(var(--button-size) * 0.2);
+        font-weight: 600;
+        white-space: nowrap;
+        transition: opacity 0.4s ease, max-width 0.4s ease;
+        max-width: 0;
+    }
+
+    &:hover {
+        width: calc(var(--button-size) * 2.7);
+        border-radius: calc(var(--button-size) / 1.5);
+        padding-right: 2rem;
+
+        .icon {
+            svg {
+                transform: scale(1.2);
+            }
+        }
+
+        .text {
+            opacity: 1;
+            max-width: 10rem;
+        }
+    }
+
+    &:active {
+        transform: translate(0.2rem, 0.2rem);
+    }
+}
+</style>
