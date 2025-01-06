@@ -1,5 +1,6 @@
 <template>
   <div class="index">
+    <img class="bg_guy" src="~@/static/images/km_index_desktop.jpg" />
     <div class="index__wrapper">
       <div class="index__initials">К. М.</div>
       <div class="index__menu">
@@ -47,11 +48,29 @@ export default Vue.extend({
   --left-indent: 5rem;
 
   width: 100%;
-  height: 100dvh;
-  background-image: url('~@/static/images/km_index_desktop.jpg');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+  height: 100vh;
+  background-color: #bc7109;
+
+  .bg_guy {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    object-fit: cover;
+
+    animation: fadeInMove 2s forwards;
+  }
+  @keyframes fadeInMove {
+  0% {
+    // opacity: 0;
+    transform: translate(50%, 0);
+  }
+  100% {
+    // opacity: 1;
+    transform: translate(0, 0);
+  }
+}
 
   &__wrapper {
     position: relative;
