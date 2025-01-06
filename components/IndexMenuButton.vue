@@ -46,10 +46,10 @@ export default Vue.extend({
 });
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 button {
     --button-size: 6rem;
-    --svg-scale: 0.4;
+    --svg-scale: 0.6;
 
     display: flex;
     align-items: center;
