@@ -34,11 +34,8 @@ export default Vue.extend({
 
     methods: {
         async loadSVG() {
-            console.log('👺 ' + this.$axios.defaults.baseURL);
-            console.log('👺 ' + this.svgPath);
             try {
-                const fullPath = this.svgPath;
-                const response = await this.$axios.get(fullPath, { responseType: 'text' });
+                const response = await this.$axios.get(this.svgPath, { responseType: 'text' });
                 this.svg = response.data;
             } catch (error) {
                 console.error('Ошибка при загрузке SVG:', error);
