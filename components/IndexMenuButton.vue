@@ -37,7 +37,7 @@ export default Vue.extend({
             console.log('👺 ' + this.$axios.defaults.baseURL);
             console.log('👺 ' + this.svgPath);
             try {
-                const fullPath = `${this.$axios.defaults.baseURL}${this.svgPath.replace(/^\/+/, '')}`;
+                const fullPath = this.svgPath;
                 const response = await this.$axios.get(fullPath, { responseType: 'text' });
                 this.svg = response.data;
             } catch (error) {
