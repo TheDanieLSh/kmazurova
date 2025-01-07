@@ -1,5 +1,5 @@
 <template>
-  <div class="index">
+  <section class="index">
     <img class="bg_guy" src="~/static/images/index/bg_guy.jpg" />
     <div class="index__wrapper">
       <h1 class="index__initials">К. М.</h1>
@@ -29,7 +29,7 @@
         </a>
       </div>
     </div>
-  </div>
+  </section>
 </template>
 
 <script lang="ts">
