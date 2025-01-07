@@ -1,5 +1,7 @@
 <template>
     <div class="slider-container">
+    <div class="test" @click="goToSlide(0, 2)">ТЕСТ</div>
+
         <div
             class="slide"
             v-for="(PageComponent, index) in pages"
@@ -7,7 +9,7 @@
             :class="{ active: index === currentIndex }"
             :style="{
                 transform: index === currentIndex ? 'translateY(0)' : index < currentIndex ? 'translateY(-100%)' : 'translateY(100%)',
-                visibility: shouldRenderSlide(index) ? 'visible' : 'hidden',
+                // visibility: shouldRenderSlide(index) ? 'visible' : 'hidden',
             }"
         >
             <component :is="PageComponent" />
@@ -51,21 +53,22 @@ export default Vue.extend({
             if (this.isAnimating) return;
 
             if (event.deltaY > 0) {
-                this.changeSlide('next');
+                this.slideScroll('next');
             } else {
-                this.changeSlide('prev');
+                this.slideScroll('prev');
             }
         },
-        changeSlide(direction: string) {
+        slideScroll(direction: string) {
             const slidesCount = this.pages.length;
-            const nextIndex =
-                direction === 'next'
-                    ? (this.currentIndex + 1) % slidesCount
+            /* Деление по модулю при вычислении ниже нужно для того чтобы
+            не выходить за пределы возможных значений индексов (2 % 3 = 2; 3 % 3 = 0) */
+            const nextIndex = direction === 'next' ?
+                    (this.currentIndex + 1) % slidesCount
                     : (this.currentIndex - 1 + slidesCount) % slidesCount;
 
-            this.animateSlide(this.currentIndex, nextIndex, direction);
+            this.goToSlide(this.currentIndex, nextIndex, direction);
         },
-        animateSlide(currentIndex: number, nextIndex: number, direction: string) {
+        goToSlide(currentIndex: number, nextIndex: number, direction: string = 'next') {
             const slides = document.querySelectorAll('.slide');
 
             this.isAnimating = true;
@@ -86,19 +89,29 @@ export default Vue.extend({
                 { y: '0%', duration: 1, ease: 'power2.inOut' }
             );
         },
-        shouldRenderSlide(index: number): boolean {
-            return (
-                index === this.currentIndex ||
-                index === (this.currentIndex + 1) % this.pages.length ||
-                index === (this.currentIndex - 1 + this.pages.length) % this.pages.length
-            );
-        },
+        // shouldRenderSlide(index: number): boolean {
+        //     return (
+        //         index === this.currentIndex ||
+        //         index === (this.currentIndex + 1) % this.pages.length ||
+        //         index === (this.currentIndex - 1 + this.pages.length) % this.pages.length
+        //     );
+        // },
     },
 });
 </script>
 
 <style lang="scss">
 .slider-container {
+    .test {
+    position: absolute;
+    top: 10vh;
+    left: 50%;
+    width: 100px;
+    height: 30px;
+    background-color: red;
+    z-index: 1;
+    cursor: pointer;
+  }
     position: relative;
     width: 100%;
     height: 100dvh;
@@ -109,7 +122,7 @@ export default Vue.extend({
         left: 0;
         width: 100%;
         height: 100%;
-        visibility: hidden;
+        // visibility: hidden;
         transition: visibility 0s linear 0.5s;
 
         &.active {

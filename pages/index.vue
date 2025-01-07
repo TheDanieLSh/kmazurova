@@ -1,5 +1,6 @@
 <template>
   <section class="index">
+    <!-- <div class="test">ТЕСТ</div> -->
     <img class="bg_guy" src="~/static/images/index/bg_guy.jpg" />
     <div class="index__wrapper">
       <header>
@@ -50,6 +51,16 @@ export default Vue.extend({
 
 <style lang="scss">
 .index {
+  // .test {
+  //   position: absolute;
+  //   top: 10vh;
+  //   left: 50%;
+  //   width: 100px;
+  //   height: 30px;
+  //   background-color: red;
+  //   z-index: 1;
+  //   cursor: pointer;
+  // }
   --accent-color: #ffda8c;
   --left-indent: 5rem;
 
