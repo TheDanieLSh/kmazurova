@@ -53,6 +53,7 @@ export default Vue.extend({
   width: 100%;
   height: 100vh;
   background-color: #bc7109;
+  font-family: 'Montserrat';
 
   .bg_guy {
     position: absolute;
@@ -66,11 +67,9 @@ export default Vue.extend({
   }
   @keyframes fadeInMove {
   0% {
-    // opacity: 0;
     transform: translate(50%, 0);
   }
   100% {
-    // opacity: 1;
     transform: translate(0, 0);
   }
 }
@@ -80,7 +79,7 @@ export default Vue.extend({
     margin-left: var(--left-indent);
     display: flex;
     flex-direction: column;
-    gap: 5rem;
+    gap: 4rem;
   }
 
   &__initials {
@@ -98,6 +97,7 @@ export default Vue.extend({
     display: flex;
     flex-direction: column;
     gap: 2rem;
+    margin-top: 1rem;
 
     .icon {
       display: block;
