@@ -20,7 +20,8 @@ import Vue from 'vue';
 import { gsap } from 'gsap';
 
 import IndexPage from '~/pages/index.vue';
-import AboutPage from '~/pages/about.vue';
+import PricePage from '~/pages/price.vue';
+import WorksPage from '~/pages/works.vue';
 
 export default Vue.extend({
     mounted() {
@@ -33,7 +34,7 @@ export default Vue.extend({
     data() {
         return {
             currentIndex: 0,
-            pages: [IndexPage, AboutPage],
+            pages: [IndexPage, PricePage, WorksPage],
             isAnimating: false,
         };
     },

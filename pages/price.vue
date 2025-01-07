@@ -1,16 +1,16 @@
 <template>
-    <section class="about"></section>
+    <section class="price"></section>
 </template>
 
 <script lang="ts">
 import Vue from 'vue';
 export default Vue.extend({
-    name: 'AboutPage',
+    name: 'PricePage',
 });
 </script>
 
 <style>
-.about {
+.price {
     background-color: red;
 }
 </style>
