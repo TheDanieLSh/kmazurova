@@ -2,7 +2,10 @@
   <section class="index">
     <img class="bg_guy" src="~/static/images/index/bg_guy.jpg" />
     <div class="index__wrapper">
-      <h1 class="index__initials">К. М.</h1>
+      <header>
+        <h1 class="index__initials">К.М.</h1>
+        <h2 class="index__subheader">АВТОРСКИЕ КАРТИНЫ НА ЗАКАЗ</h2>
+      </header>
       <div class="index__menu">
         <IndexMenuButton 
           svgPath="images/index/price.svg"
@@ -63,16 +66,16 @@ export default Vue.extend({
     height: 100vh;
     object-fit: cover;
 
-    animation: fadeInMove 2s forwards;
+    animation: moveIn 2s forwards;
   }
-  @keyframes fadeInMove {
-  0% {
-    transform: translate(50%, 0);
+  @keyframes moveIn {
+    0% {
+      transform: translate(50%, 0);
+    }
+    100% {
+      transform: translate(0, 0);
+    }
   }
-  100% {
-    transform: translate(0, 0);
-  }
-}
 
   &__wrapper {
     position: relative;
@@ -82,10 +85,36 @@ export default Vue.extend({
     gap: 4rem;
   }
 
+  header {
+    display: flex;
+    align-items: baseline;
+    gap: 4rem;
+  }
+
   &__initials {
     color: var(--accent-color);
     font-size: 18rem;
     cursor: default;
+  }
+
+  &__subheader {
+    color: var(--accent-color);
+    font-size: 3.5rem;
+    cursor: default;
+
+    animation: fadeInMove 0.6s forwards;
+    animation-delay: 2s;
+    opacity: 0;
+  }
+  @keyframes fadeInMove {
+    0% {
+      transform: translate(0, -20%);
+      opacity: 0;
+    }
+    100% {
+      transform: translate(0, 0);
+      opacity: 1;
+    }
   }
 
   &__menu {
