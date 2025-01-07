@@ -1,6 +1,6 @@
 <template>
-  <div class="index">
-    <img class="bg_guy" src="~@/static/images/km_index_desktop.jpg" />
+  <section class="index">
+    <img class="bg_guy" src="~/static/images/index/bg_guy.jpg" />
     <div class="index__wrapper">
       <h1 class="index__initials">К. М.</h1>
       <div class="index__menu">
@@ -29,7 +29,7 @@
         </a>
       </div>
     </div>
-  </div>
+  </section>
 </template>
 
 <script lang="ts">
@@ -50,8 +50,6 @@ export default Vue.extend({
   --accent-color: #ffda8c;
   --left-indent: 5rem;
 
-  width: 100%;
-  height: 100vh;
   background-color: #bc7109;
 
   .bg_guy {

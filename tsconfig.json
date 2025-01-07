@@ -34,5 +34,6 @@
     "node_modules",
     ".nuxt",
     "dist"
-  ]
+  ],
+  "typeRoots": ["./node_modules/@types", "./assets/types"]
 }
