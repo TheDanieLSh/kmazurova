@@ -22,10 +22,10 @@
       </div>
       <div class="index__socials">
         <a href="https://t.me/exaggerate_escapism" class="icon" target="_blank">
-          <img src="~/static/images/tg.svg" />
+          <img src="~/static/images/index/tg.svg" />
         </a>
         <a href="https://vk.com/overwhelming_utter_devastation" class="icon" target="_blank">
-          <img src="~/static/images/vk.svg" />
+          <img src="~/static/images/index/vk.svg" />
         </a>
       </div>
     </div>
