@@ -1,6 +1,6 @@
 <template>
   <section class="index">
-    <img class="bg_guy" src="~/static/images/index/bg_guy.jpg" />
+    <img class="bg_img" src="~/static/images/index/bg_guy.jpg" />
     <div class="index__wrapper">
       <header>
         <h1 class="index__initials">К.М.</h1>
@@ -62,12 +62,12 @@ export default Vue.extend({
   background-color: #bc7109;
   font-family: 'Montserrat';
 
-  .bg_guy {
+  .bg_img {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
-    height: 100vh;
+    height: 100dvh;
     object-fit: cover;
 
     animation: moveIn 2s forwards;
@@ -151,6 +151,17 @@ export default Vue.extend({
       &:active {
         transform: translate(0.2rem, 0.2rem);
       }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .index {
+    background-color: black;
+
+    .bg_img {
+      content: url('~/static/mobile/images/index/bg_frogs.jpg');
+      animation: none;
     }
   }
 }
