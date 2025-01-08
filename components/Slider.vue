@@ -28,15 +28,23 @@ export default Vue.extend({
     mounted() {
         this.initSlides();
         window.addEventListener('wheel', this.onWheel, { passive: true });
+        window.addEventListener('touchstart', this.onTouchStart, { passive: true });
+        window.addEventListener('touchend', this.onTouchEnd, { passive: true });
     },
     destroyed() {
         window.removeEventListener('wheel', this.onWheel);
+        window.removeEventListener('touchstart', this.onTouchStart);
+        window.removeEventListener('touchend', this.onTouchEnd);
     },
     data() {
         return {
             currentIndex: 0,
             pages: [IndexPage, WorksPage, PricePage, FaqPage],
             isAnimating: false,
+            startX: 0,
+            startY: 0,
+            endX: 0,
+            endY: 0,
         };
     },
     methods: {
@@ -95,6 +103,25 @@ export default Vue.extend({
         //         index === (this.currentIndex - 1 + this.pages.length) % this.pages.length
         //     );
         // },
+        onTouchStart(event: TouchEvent) {
+        this.startX = event.touches[0].clientX;
+        this.startY = event.touches[0].clientY;
+        },
+        onTouchEnd(event: TouchEvent) {
+            this.endX = event.changedTouches[0].clientX;
+            this.endY = event.changedTouches[0].clientY;
+
+            const deltaX = this.endX - this.startX;
+            const deltaY = this.endY - this.startY;
+
+            if (Math.abs(deltaY) > Math.abs(deltaX) && Math.abs(deltaY) > 30) {
+                if (deltaY < 0) {
+                    this.slideScroll('next');
+                } else {
+                    this.slideScroll('prev');
+                }
+            }
+        },
     },
 });
 </script>
