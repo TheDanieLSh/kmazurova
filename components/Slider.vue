@@ -1,7 +1,5 @@
 <template>
     <div class="slider-container">
-    <div class="test" @click="goToSlide(0, 2)">ТЕСТ</div>
-
         <div
             class="slide"
             v-for="(PageComponent, index) in pages"
@@ -12,7 +10,7 @@
                 // visibility: shouldRenderSlide(index) ? 'visible' : 'hidden',
             }"
         >
-            <component :is="PageComponent" />
+            <component :is="PageComponent" :goToSlide="goToSlide" />
         </div>
     </div>
 </template>
@@ -22,8 +20,9 @@ import Vue from 'vue';
 import { gsap } from 'gsap';
 
 import IndexPage from '~/pages/index.vue';
-import PricePage from '~/pages/price.vue';
 import WorksPage from '~/pages/works.vue';
+import PricePage from '~/pages/price.vue';
+import FaqPage from '~/pages/faq.vue';
 
 export default Vue.extend({
     mounted() {
@@ -36,7 +35,7 @@ export default Vue.extend({
     data() {
         return {
             currentIndex: 0,
-            pages: [IndexPage, PricePage, WorksPage],
+            pages: [IndexPage, WorksPage, PricePage, FaqPage],
             isAnimating: false,
         };
     },
@@ -102,16 +101,6 @@ export default Vue.extend({
 
 <style lang="scss">
 .slider-container {
-    .test {
-    position: absolute;
-    top: 10vh;
-    left: 50%;
-    width: 100px;
-    height: 30px;
-    background-color: red;
-    z-index: 1;
-    cursor: pointer;
-  }
     position: relative;
     width: 100%;
     height: 100dvh;
@@ -137,4 +126,3 @@ export default Vue.extend({
     }
 }
 </style>
-

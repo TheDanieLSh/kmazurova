@@ -1,6 +1,5 @@
 <template>
   <section class="index">
-    <!-- <div class="test">ТЕСТ</div> -->
     <img class="bg_guy" src="~/static/images/index/bg_guy.jpg" />
     <div class="index__wrapper">
       <header>
@@ -11,7 +10,8 @@
         <IndexMenuButton 
           svgPath="images/index/price.svg"
           text="Прайс"
-          link=""
+          slide="price"
+          :goToSlide="goToSlide"
         />
         <IndexMenuButton 
           svgPath="images/index/chat.svg"
@@ -21,7 +21,8 @@
         <IndexMenuButton 
           svgPath="images/index/faq.svg"
           text="F.A.Q."
-          link=""
+          slide="faq"
+          :goToSlide="goToSlide"
         />
       </div>
       <div class="index__socials">
@@ -46,21 +47,15 @@ export default Vue.extend({
   components: {
     IndexMenuButton,
   },
+
+  props: {
+    goToSlide: Function,
+  },
 })
 </script>
 
 <style lang="scss">
 .index {
-  // .test {
-  //   position: absolute;
-  //   top: 10vh;
-  //   left: 50%;
-  //   width: 100px;
-  //   height: 30px;
-  //   background-color: red;
-  //   z-index: 1;
-  //   cursor: pointer;
-  // }
   --accent-color: #ffda8c;
   --left-indent: 5rem;
 

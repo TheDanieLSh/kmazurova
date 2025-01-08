@@ -1,5 +1,10 @@
 <template>
-    <a class="menu-btn" :href=link target="_blank">
+    <a
+        class="menu-btn"
+        :href="link || '#'"
+        :target="link ? '_blank' : '_self'"
+        @click="handleClick"
+    >
         <div class="icon" v-html="svg"></div>
         <div class="text">{{ text }}</div>
     </a>
@@ -7,6 +12,15 @@
 
 <script lang="ts">
 import Vue from 'vue';
+
+const targetIdx = {
+    'index': 0,
+    'works': 1,
+    'price': 2,
+    'faq': 3,
+}
+
+type SlideName = keyof typeof targetIdx;
 
 export default Vue.extend({
     name: 'IndexMenuButton',
@@ -22,13 +36,22 @@ export default Vue.extend({
         },
         link: {
             type: String,
-            required: true,
+            required: false,
+        },
+        slide: {
+            type: String as Vue.PropType<SlideName>,
+            required: false
+        },
+        goToSlide: {
+            type: Function,
+            required: false,
         },
     },
 
     data() {
         return {
             svg: '',
+            targetIdx,
         };
     },
 
@@ -44,7 +67,15 @@ export default Vue.extend({
             } catch (error) {
                 console.error('Ошибка при загрузке SVG:', error);
             }
-        }
+        },
+        handleClick(e: MouseEvent) {
+            if (this.link) return;
+
+            if (this.goToSlide && this.slide) {
+                e.preventDefault();
+                this.goToSlide(0, this.targetIdx[this.slide]);
+            }
+        },
     }
 });
 </script>
