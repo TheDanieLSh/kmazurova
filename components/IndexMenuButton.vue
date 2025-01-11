@@ -4,6 +4,7 @@
         :href="link || '#'"
         :target="link ? '_blank' : '_self'"
         @click="handleClick"
+        v-bind:title="link ? 'Чат в телеграм' : `Перейти к странице ${text}`"
     >
         <div class="icon" v-html="svg"></div>
         <div class="text">{{ text }}</div>

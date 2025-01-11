@@ -6,7 +6,7 @@
         <h1 class="index__initials">К.М.</h1>
         <h2 class="index__subheader">АВТОРСКИЕ КАРТИНЫ НА ЗАКАЗ</h2>
       </header>
-      <div class="index__menu">
+      <main class="index__menu">
         <IndexMenuButton 
           svgPath="images/index/price.svg"
           text="Прайс"
@@ -24,15 +24,25 @@
           slide="faq"
           :goToSlide="goToSlide"
         />
-      </div>
-      <div class="index__socials">
-        <a href="https://t.me/exaggerate_escapism" class="icon" target="_blank">
+      </main>
+      <footer class="index__socials">
+        <a
+          href="https://t.me/exaggerate_escapism"
+          class="icon"
+          target="_blank"
+          title="Телеграм канал"
+        >
           <img src="~/static/images/index/tg.svg" />
         </a>
-        <a href="https://vk.com/overwhelming_utter_devastation" class="icon" target="_blank">
+        <a
+          href="https://vk.com/overwhelming_utter_devastation"
+          class="icon"
+          target="_blank"
+          title="Группа в ВК"
+        >
           <img src="~/static/images/index/vk.svg" />
         </a>
-      </div>
+      </footer>
     </div>
   </section>
 </template>

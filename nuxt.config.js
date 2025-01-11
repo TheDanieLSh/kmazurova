@@ -3,12 +3,16 @@ export default {
   head: {
     title: 'Ксения Мазурова — картины на заказ',
     htmlAttrs: {
-      lang: 'en'
+      lang: 'ru'
     },
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: '' },
+      {
+        hid: 'description',
+        name: 'description',
+        content: 'Картины на заказ. Живопись с авторским подходом от независимого современного художника. Создание уникального произведения искусства для вашего интерьера.'
+      },
       { name: 'format-detection', content: 'telephone=no' }
     ],
     link: [
