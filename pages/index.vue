@@ -182,11 +182,13 @@ export default Vue.extend({
 
     &__initials {
       font-size: 10rem;
+      color: inherit;
     }
 
     &__subheader {
       animation: none;
       opacity: 1;
+      color: inherit;
     }
 
     &__menu {

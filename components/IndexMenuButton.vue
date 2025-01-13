@@ -154,7 +154,7 @@ export default Vue.extend({
         --button-size: 5.5rem;
 
         background-color: #bc7109;
-        width: calc(var(--button-size) * 2.7);
+        width: calc(var(--button-size) * 3.1);
         border-radius: calc(var(--button-size) / 1.5);
         padding-right: 2rem;
 
@@ -162,6 +162,7 @@ export default Vue.extend({
             color: black;
             opacity: 1;
             max-width: 10rem;
+            font-size: calc(var(--button-size) * 0.25);
         }
     }
 }
