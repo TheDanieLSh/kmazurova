@@ -67,7 +67,7 @@ export default Vue.extend({
 <style lang="scss">
 .index {
   --accent-color: #ffda8c;
-  --left-indent: 5rem;
+  --indent: 5rem;
 
   background-color: #bc7109;
   font-family: 'Montserrat';
@@ -93,7 +93,7 @@ export default Vue.extend({
 
   &__wrapper {
     position: relative;
-    margin-left: var(--left-indent);
+    margin: 0 var(--indent);
     display: flex;
     flex-direction: column;
     gap: 4rem;
@@ -167,11 +167,30 @@ export default Vue.extend({
 
 @media (max-width: 768px) {
   .index {
+    --indent: 1rem;
+
     background-color: black;
 
     .bg_img {
-      content: url('~/static/mobile/images/index/bg_frogs.jpg');
+      content: url('~/static/mobile/images/index/bg.png');
       animation: none;
+    }
+
+    header {
+      flex-direction: column;
+    }
+
+    &__initials {
+      font-size: 10rem;
+    }
+
+    &__subheader {
+      animation: none;
+      opacity: 1;
+    }
+
+    &__menu {
+      flex-wrap: wrap;
     }
   }
 }

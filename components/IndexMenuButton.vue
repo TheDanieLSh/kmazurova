@@ -148,4 +148,21 @@ export default Vue.extend({
         transform: translate(0.2rem, 0.2rem);
     }
 }
+
+@media (max-width: 768px) {
+    .menu-btn {
+        --button-size: 5.5rem;
+
+        background-color: #bc7109;
+        width: calc(var(--button-size) * 2.7);
+        border-radius: calc(var(--button-size) / 1.5);
+        padding-right: 2rem;
+
+        .text {
+            color: black;
+            opacity: 1;
+            max-width: 10rem;
+        }
+    }
+}
 </style>
