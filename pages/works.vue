@@ -1,5 +1,7 @@
 <template>
-    <section class="works"></section>
+    <section class="works scrollable">
+        
+    </section>
 </template>
 
 <script lang="ts">

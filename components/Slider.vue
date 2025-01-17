@@ -24,6 +24,8 @@ import WorksPage from '~/pages/works.vue';
 import PricePage from '~/pages/price.vue';
 import FaqPage from '~/pages/faq.vue';
 
+const scrollables = document.querySelectorAll('.scrollable');
+
 export default Vue.extend({
     mounted() {
         this.initSlides();
@@ -59,6 +61,18 @@ export default Vue.extend({
         onWheel(event: WheelEvent) {
             if (this.isAnimating) return;
 
+            scrollables.forEach(scrollable => {
+                if (this.isElementInViewport(scrollable)) {
+                    if (event.deltaY > 0) {
+                        this.scrollDown(scrollable);
+                    } else {
+                        this.scrollUp(scrollable);
+                    }
+                }
+                // TODO: логика для переключения слайда
+                return;
+            });
+
             if (event.deltaY > 0) {
                 this.slideScroll('next');
             } else {
@@ -70,8 +84,8 @@ export default Vue.extend({
             /* Деление по модулю при вычислении ниже нужно для того чтобы
             не выходить за пределы возможных значений индексов (2 % 3 = 2; 3 % 3 = 0) */
             const nextIndex = direction === 'next' ?
-                    (this.currentIndex + 1) % slidesCount
-                    : (this.currentIndex - 1 + slidesCount) % slidesCount;
+                (this.currentIndex + 1) % slidesCount
+                : (this.currentIndex - 1 + slidesCount) % slidesCount;
 
             this.goToSlide(this.currentIndex, nextIndex, direction);
         },
@@ -104,8 +118,8 @@ export default Vue.extend({
         //     );
         // },
         onTouchStart(event: TouchEvent) {
-        this.startX = event.touches[0].clientX;
-        this.startY = event.touches[0].clientY;
+            this.startX = event.touches[0].clientX;
+            this.startY = event.touches[0].clientY;
         },
         onTouchEnd(event: TouchEvent) {
             this.endX = event.changedTouches[0].clientX;
@@ -122,6 +136,20 @@ export default Vue.extend({
                 }
             }
         },
+        isElementInViewport(el: Element) {
+            const rect = el.getBoundingClientRect();
+            const viewportHeight = window.innerHeight || document.documentElement.clientHeight;
+            const viewportWidth = window.innerWidth || document.documentElement.clientWidth;
+
+            return (
+                rect.top >= 0 &&
+                rect.left >= 0 &&
+                rect.bottom <= viewportHeight &&
+                rect.right <= viewportWidth
+            );
+        },
+        scrollDown(scrollable: Element) {},
+        scrollUp(scrollable: Element) {},
     },
 });
 </script>
