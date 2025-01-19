@@ -66,39 +66,41 @@ export default Vue.extend({
         onWheel(event: WheelEvent): void {
             if (this.isAnimating) return;
 
-            let scrolled = false;
+            let currentSlide: Element|undefined;
 
             scrollables.forEach(scrollable => {
                 const rect = scrollable.getBoundingClientRect();
 
-                console.log({
-                    top: rect.top,
-                    bottom: rect.bottom,
-                    vH: viewportHeight,
-                });
-
                 if (this.isElementInViewport(rect)) {
+                    currentSlide = scrollable;
+
                     if (event.deltaY > 0) {
                         if (rect.bottom <= viewportHeight) return;
                         this.scroll(scrollable, 'down');
-                        scrolled = true;
                     }
                     if (event.deltaY < 0) {
                         if (rect.top >= 0) return;
                         this.scroll(scrollable, 'up');
-                        scrolled = true;
                     }
                 }
 
                 return;
             });
 
-            if (scrolled) return;
-
-            if (event.deltaY > 0) {
-                this.slideScroll('next');
+            if (currentSlide !== undefined) {
+                if (this.isElementInViewport(currentSlide.getBoundingClientRect())) {
+                    if (event.deltaY > 0) {
+                        this.slideScroll('next');
+                    } else {
+                        this.slideScroll('prev');
+                    }
+                }
             } else {
-                this.slideScroll('prev');
+                if (event.deltaY > 0) {
+                    this.slideScroll('next');
+                } else {
+                    this.slideScroll('prev');
+                }
             }
         },
         scroll(scrollable: Element, direction: string): void {
