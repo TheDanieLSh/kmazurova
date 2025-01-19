@@ -76,11 +76,11 @@ export default Vue.extend({
 
                     if (event.deltaY > 0) {
                         if (rect.bottom <= viewportHeight) return;
-                        this.scroll(scrollable, 'down');
+                        this.scroll(scrollable, rect, 'down');
                     }
                     if (event.deltaY < 0) {
                         if (rect.top >= 0) return;
-                        this.scroll(scrollable, 'up');
+                        this.scroll(scrollable, rect, 'up');
                     }
                 }
 
@@ -103,9 +103,24 @@ export default Vue.extend({
                 }
             }
         },
-        scroll(scrollable: Element, direction: string): void {
+        scroll(scrollable: Element, rect: DOMRect, direction: string): void {
+            let offset: string;
+
+            if (direction === 'up') {
+                if ((rect.top + rect.height * 0.1) > 0) {
+                    offset = `${Math.abs(rect.top)}px`
+                } else offset = '10%'
+            } else if (direction === 'down') {
+                if ((rect.bottom - rect.height * 0.1) < viewportHeight) {
+                    offset = `-${rect.bottom - viewportHeight}px`
+                } else offset = '-10%'
+            } else {
+                console.log('❗Error: Not valid param value passed to scroll direction❗');
+                return;
+            }
+
             gsap.to(scrollable, {
-                y: direction === 'up' ? '10%' : '-10%',
+                y: offset,
                 duration: 1,
             });
         },
@@ -140,6 +155,12 @@ export default Vue.extend({
                 { y: '0%', duration: 1, ease: 'power2.inOut' }
             );
         },
+        isElementInViewport(rect: DOMRect): boolean {
+            return (
+                rect.top <= 0 &&
+                rect.bottom >= viewportHeight
+            );
+        },
         // shouldRenderSlide(index: number): boolean {
         //     return (
         //         index === this.currentIndex ||
@@ -165,12 +186,6 @@ export default Vue.extend({
                     this.slideScroll('prev');
                 }
             }
-        },
-        isElementInViewport(rect: DOMRect): boolean {
-            return (
-                rect.top <= 0 &&
-                rect.bottom >= viewportHeight
-            );
         },
     },
 });
