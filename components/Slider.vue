@@ -79,12 +79,12 @@ export default Vue.extend({
 
                 if (this.isElementInViewport(rect)) {
                     if (event.deltaY > 0) {
-                        if (rect.top >= 0 && rect.top <= viewportHeight) return;
+                        if (rect.bottom <= viewportHeight) return;
                         this.scroll(scrollable, 'down');
                         scrolled = true;
                     }
                     if (event.deltaY < 0) {
-                        if (rect.bottom >= 0 && rect.bottom <= viewportHeight) return;
+                        if (rect.top >= 0) return;
                         this.scroll(scrollable, 'up');
                         scrolled = true;
                     }
@@ -103,7 +103,7 @@ export default Vue.extend({
         },
         scroll(scrollable: Element, direction: string): void {
             gsap.to(scrollable, {
-                direction: direction === 'up' ? '10%' : '-10%',
+                y: direction === 'up' ? '10%' : '-10%',
                 duration: 1,
             });
         },
@@ -166,8 +166,8 @@ export default Vue.extend({
         },
         isElementInViewport(rect: DOMRect): boolean {
             return (
-                (rect.top >= 0 && rect.top < viewportHeight) &&
-                (rect.bottom > 0 && rect.bottom > 0)
+                rect.top <= 0 &&
+                rect.bottom >= viewportHeight
             );
         },
     },
