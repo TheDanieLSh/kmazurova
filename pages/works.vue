@@ -1,6 +1,6 @@
 <template>
     <section class="works scrollable">
-        
+        <div class="someContent"></div>
     </section>
 </template>
 
@@ -11,8 +11,13 @@ export default Vue.extend({
 });
 </script>
 
-<style>
+<style lang="scss">
 .works {
     background-color: green;
+
+    .someContent {
+        width: 100%;
+        height: 150dvh;
+    }
 }
 </style>

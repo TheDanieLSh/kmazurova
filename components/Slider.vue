@@ -24,7 +24,9 @@ import WorksPage from '~/pages/works.vue';
 import PricePage from '~/pages/price.vue';
 import FaqPage from '~/pages/faq.vue';
 
-const scrollables = document.querySelectorAll('.scrollable');
+let scrollables: NodeListOf<Element>;
+let viewportHeight: number;
+let viewportWidth: number;
 
 export default Vue.extend({
     mounted() {
@@ -32,6 +34,9 @@ export default Vue.extend({
         window.addEventListener('wheel', this.onWheel, { passive: true });
         window.addEventListener('touchstart', this.onTouchStart, { passive: true });
         window.addEventListener('touchend', this.onTouchEnd, { passive: true });
+        scrollables = document.querySelectorAll('.scrollable');
+        viewportHeight = window.innerHeight || document.documentElement.clientHeight;
+        viewportWidth = window.innerWidth || document.documentElement.clientWidth;
     },
     destroyed() {
         window.removeEventListener('wheel', this.onWheel);
@@ -50,7 +55,7 @@ export default Vue.extend({
         };
     },
     methods: {
-        initSlides() {
+        initSlides(): void {
             const slides = document.querySelectorAll('.slide');
             slides.forEach((slide, index) => {
                 gsap.set(slide, {
@@ -58,20 +63,37 @@ export default Vue.extend({
                 });
             });
         },
-        onWheel(event: WheelEvent) {
+        onWheel(event: WheelEvent): void {
             if (this.isAnimating) return;
 
+            let scrolled = false;
+
             scrollables.forEach(scrollable => {
-                if (this.isElementInViewport(scrollable)) {
+                const rect = scrollable.getBoundingClientRect();
+
+                console.log({
+                    top: rect.top,
+                    bottom: rect.bottom,
+                    vH: viewportHeight,
+                });
+
+                if (this.isElementInViewport(rect)) {
                     if (event.deltaY > 0) {
-                        this.scrollDown(scrollable);
-                    } else {
-                        this.scrollUp(scrollable);
+                        if (rect.top >= 0 && rect.top <= viewportHeight) return;
+                        this.scroll(scrollable, 'down');
+                        scrolled = true;
+                    }
+                    if (event.deltaY < 0) {
+                        if (rect.bottom >= 0 && rect.bottom <= viewportHeight) return;
+                        this.scroll(scrollable, 'up');
+                        scrolled = true;
                     }
                 }
-                // TODO: логика для переключения слайда
+
                 return;
             });
+
+            if (scrolled) return;
 
             if (event.deltaY > 0) {
                 this.slideScroll('next');
@@ -79,7 +101,13 @@ export default Vue.extend({
                 this.slideScroll('prev');
             }
         },
-        slideScroll(direction: string) {
+        scroll(scrollable: Element, direction: string): void {
+            gsap.to(scrollable, {
+                direction: direction === 'up' ? '10%' : '-10%',
+                duration: 1,
+            });
+        },
+        slideScroll(direction: string): void {
             const slidesCount = this.pages.length;
             /* Деление по модулю при вычислении ниже нужно для того чтобы
             не выходить за пределы возможных значений индексов (2 % 3 = 2; 3 % 3 = 0) */
@@ -89,7 +117,7 @@ export default Vue.extend({
 
             this.goToSlide(this.currentIndex, nextIndex, direction);
         },
-        goToSlide(currentIndex: number, nextIndex: number, direction: string = 'next') {
+        goToSlide(currentIndex: number, nextIndex: number, direction: string = 'next'): void {
             const slides = document.querySelectorAll('.slide');
 
             this.isAnimating = true;
@@ -117,11 +145,11 @@ export default Vue.extend({
         //         index === (this.currentIndex - 1 + this.pages.length) % this.pages.length
         //     );
         // },
-        onTouchStart(event: TouchEvent) {
+        onTouchStart(event: TouchEvent): void {
             this.startX = event.touches[0].clientX;
             this.startY = event.touches[0].clientY;
         },
-        onTouchEnd(event: TouchEvent) {
+        onTouchEnd(event: TouchEvent): void {
             this.endX = event.changedTouches[0].clientX;
             this.endY = event.changedTouches[0].clientY;
 
@@ -136,20 +164,12 @@ export default Vue.extend({
                 }
             }
         },
-        isElementInViewport(el: Element) {
-            const rect = el.getBoundingClientRect();
-            const viewportHeight = window.innerHeight || document.documentElement.clientHeight;
-            const viewportWidth = window.innerWidth || document.documentElement.clientWidth;
-
+        isElementInViewport(rect: DOMRect): boolean {
             return (
-                rect.top >= 0 &&
-                rect.left >= 0 &&
-                rect.bottom <= viewportHeight &&
-                rect.right <= viewportWidth
+                (rect.top >= 0 && rect.top < viewportHeight) &&
+                (rect.bottom > 0 && rect.bottom > 0)
             );
         },
-        scrollDown(scrollable: Element) {},
-        scrollUp(scrollable: Element) {},
     },
 });
 </script>
@@ -176,7 +196,8 @@ export default Vue.extend({
 
         section {
             width: 100%;
-            height: 100dvh;
+            min-height: 100dvh;
+            height: fit-content;
         }
     }
 }
