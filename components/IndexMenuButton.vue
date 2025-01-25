@@ -12,8 +12,6 @@
 </template>
 
 <script lang="ts">
-import Vue from 'vue';
-
 const targetIdx = {
     'index': 0,
     'works': 1,
@@ -23,7 +21,7 @@ const targetIdx = {
 
 type SlideName = keyof typeof targetIdx;
 
-export default Vue.extend({
+export default {
     name: 'IndexMenuButton',
 
     props: {
@@ -63,8 +61,8 @@ export default Vue.extend({
     methods: {
         async loadSVG() {
             try {
-                const response = await this.$axios.get(this.svgPath, { responseType: 'text' });
-                this.svg = response.data;
+                const response = await fetch(this.svgPath);
+                this.svg = await response.text();
             } catch (error) {
                 console.error('Ошибка при загрузке SVG:', error);
             }
@@ -78,7 +76,7 @@ export default Vue.extend({
             }
         },
     }
-});
+};
 </script>
 
 <style lang="scss">

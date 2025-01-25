@@ -1,6 +1,6 @@
 <template>
   <section class="index">
-    <img class="bg_img" src="~/static/images/index/bg_guy.jpg" />
+    <img class="bg_img" src="~/public/images/index/bg_guy.jpg" />
     <div class="index__wrapper">
       <header>
         <h1 class="index__initials">К.М.</h1>
@@ -32,7 +32,7 @@
           target="_blank"
           title="Телеграм канал"
         >
-          <img src="~/static/images/index/tg.svg" />
+          <img src="~/public/images/index/tg.svg" />
         </a>
         <a
           href="https://vk.com/overwhelming_utter_devastation"
@@ -40,7 +40,7 @@
           target="_blank"
           title="Группа в ВК"
         >
-          <img src="~/static/images/index/vk.svg" />
+          <img src="~/public/images/index/vk.svg" />
         </a>
       </footer>
     </div>
@@ -48,10 +48,9 @@
 </template>
 
 <script lang="ts">
-import Vue from 'vue'
 import IndexMenuButton from '~/components/IndexMenuButton.vue';
 
-export default Vue.extend({
+export default {
   name: 'IndexPage',
 
   components: {
@@ -61,7 +60,7 @@ export default Vue.extend({
   props: {
     goToSlide: Function,
   },
-})
+}
 </script>
 
 <style lang="scss">
@@ -69,6 +68,8 @@ export default Vue.extend({
   --accent-color: #ffda8c;
   --indent: 5rem;
 
+  width: 100%;
+  height: 100dvh;
   background-color: #bc7109;
   font-family: 'Montserrat';
 
@@ -169,10 +170,11 @@ export default Vue.extend({
   .index {
     --indent: 1rem;
 
+    position: relative;
     background-color: black;
 
     .bg_img {
-      content: url('~/static/mobile/images/index/bg.png');
+      content: url('~/public/mobile/images/index/bg.png');
       animation: none;
     }
 
