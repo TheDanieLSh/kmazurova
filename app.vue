@@ -45,13 +45,17 @@
       </footer>
     </div>
   </section>
+  <section class="works">
+
+  </section>
 </template>
 
 <script lang="ts">
+import Lenis from 'lenis';
 import IndexMenuButton from '~/components/IndexMenuButton.vue';
 
 export default {
-  name: 'IndexPage',
+  name: 'LandingPage',
 
   components: {
     IndexMenuButton,
@@ -59,6 +63,17 @@ export default {
 
   props: {
     goToSlide: Function,
+  },
+
+  onMount() {
+    const lenis = new Lenis();
+    
+    function raf(time: number) {
+      lenis.raf(time);
+      requestAnimationFrame(raf);
+    }
+
+    requestAnimationFrame(raf);
   },
 }
 </script>
@@ -164,6 +179,12 @@ export default {
       }
     }
   }
+}
+
+.works {
+  width: 100%;
+  height: 100dvh;
+  background-color: green;
 }
 
 @media (max-width: 768px) {
