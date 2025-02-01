@@ -10,8 +10,7 @@
         <IndexMenuButton 
           svgPath="images/index/price.svg"
           text="Прайс"
-          slide="price"
-          :goToSlide="goToSlide"
+          @click="lenis?.scrollTo('#price', { duration: 1, easing: (t) => t })"
         />
         <IndexMenuButton 
           svgPath="images/index/chat.svg"
@@ -21,8 +20,7 @@
         <IndexMenuButton 
           svgPath="images/index/faq.svg"
           text="F.A.Q."
-          slide="faq"
-          :goToSlide="goToSlide"
+          @click="lenis?.scrollTo('#faq', { duration: 1, easing: (t) => t })"
         />
       </main>
       <footer class="index__socials">
@@ -45,37 +43,32 @@
       </footer>
     </div>
   </section>
-  <section class="works">
-
-  </section>
+  <section class="works"></section>
+  <section id="price" class="price"></section>
+  <section id="faq" class="faq"></section>
 </template>
 
-<script lang="ts">
-import Lenis from 'lenis';
-import IndexMenuButton from '~/components/IndexMenuButton.vue';
+<script setup lang="ts">
+import { onMounted, ref } from 'vue'
+import Lenis from 'lenis'
+import 'lenis/dist/lenis.css'
 
-export default {
-  name: 'LandingPage',
+const lenis = ref<Lenis | null>(null);
 
-  components: {
-    IndexMenuButton,
-  },
+onMounted(() => {
+  lenis.value = new Lenis({
+    autoRaf: true,
+    smoothWheel: true,
+    syncTouch: true,
+  })
 
-  props: {
-    goToSlide: Function,
-  },
+  // function raf(time: number) {
+  //   lenis.raf(time);
+  //   requestAnimationFrame(raf);
+  // }
 
-  onMount() {
-    const lenis = new Lenis();
-    
-    function raf(time: number) {
-      lenis.raf(time);
-      requestAnimationFrame(raf);
-    }
-
-    requestAnimationFrame(raf);
-  },
-}
+  // requestAnimationFrame(raf);
+})
 </script>
 
 <style lang="scss">
@@ -185,6 +178,18 @@ export default {
   width: 100%;
   height: 100dvh;
   background-color: green;
+}
+
+.price {
+  width: 100%;
+  height: 100dvh;
+  background-color: red;
+}
+
+.works {
+  width: 100%;
+  height: 100dvh;
+  background-color: orange;
 }
 
 @media (max-width: 768px) {

@@ -11,72 +11,43 @@
     </a>
 </template>
 
-<script lang="ts">
-const targetIdx = {
-    'index': 0,
-    'works': 1,
-    'price': 2,
-    'faq': 3,
+<script setup lang="ts">
+import { onMounted, ref } from 'vue'
+
+const props = defineProps({
+    svgPath: {
+        type: String,
+        required: true
+    },
+    text: {
+        type: String,
+        required: true
+    },
+    link: {
+        type: String,
+        required: false
+    },
+})
+
+const svg = ref('');
+
+onMounted(() => {
+    loadSVG();
+})
+
+
+const loadSVG = async () => {
+    try {
+        const response = await fetch(props.svgPath);
+        svg.value = await response.text();
+    } catch (error) {
+        console.error('Ошибка при загрузке SVG:', error);
+    }
 }
 
-type SlideName = keyof typeof targetIdx;
-
-export default {
-    name: 'IndexMenuButton',
-
-    props: {
-        svgPath: {
-            type: String,
-            required: true
-        },
-        text: {
-            type: String,
-            required: true
-        },
-        link: {
-            type: String,
-            required: false,
-        },
-        slide: {
-            type: String as Vue.PropType<SlideName>,
-            required: false
-        },
-        goToSlide: {
-            type: Function,
-            required: false,
-        },
-    },
-
-    data() {
-        return {
-            svg: '',
-            targetIdx,
-        };
-    },
-
-    mounted() {
-        this.loadSVG();
-    },
-
-    methods: {
-        async loadSVG() {
-            try {
-                const response = await fetch(this.svgPath);
-                this.svg = await response.text();
-            } catch (error) {
-                console.error('Ошибка при загрузке SVG:', error);
-            }
-        },
-        handleClick(e: MouseEvent) {
-            if (this.link) return;
-
-            if (this.goToSlide && this.slide) {
-                e.preventDefault();
-                this.goToSlide(0, this.targetIdx[this.slide]);
-            }
-        },
-    }
-};
+const handleClick = () => {
+    if (props.link) return;
+}
 </script>
 
 <style lang="scss">

@@ -20,7 +20,7 @@ export default defineNuxtConfig({
       ],
       link: [
         { rel: 'icon', type: 'image/x-icon', href: process.env.ROUTER_BASE + 'favicon.ico' }
-      ]
+      ],
     },
   },
   css: [
