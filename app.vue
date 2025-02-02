@@ -49,7 +49,7 @@
 </template>
 
 <script setup lang="ts">
-import { onMounted, ref } from 'vue'
+import { onMounted } from 'vue'
 import Lenis from 'lenis'
 import 'lenis/dist/lenis.css'
 
@@ -62,21 +62,32 @@ onMounted(() => {
     syncTouch: true,
   })
 
-  // function raf(time: number) {
-  //   lenis.raf(time);
-  //   requestAnimationFrame(raf);
-  // }
+  const sections = document.querySelectorAll('section');
+  
+  const updateZIndex = () => {
+    sections.forEach((sec, i) => {
+      const rect = sec.getBoundingClientRect();
+      sec.style.zIndex = rect.top <= 0 ? String(i + 1) : '0';
+    });
+  };
 
-  // requestAnimationFrame(raf);
+  lenis.value.on('scroll', updateZIndex);
+  updateZIndex(); // Запускаем один раз при загрузке
 })
+
 </script>
 
 <style lang="scss">
+
+section {
+  position: sticky;
+  width: 100%;
+}
+
 .index {
   --accent-color: #ffda8c;
   --indent: 5rem;
 
-  width: 100%;
   height: 100dvh;
   background-color: #bc7109;
   font-family: 'Montserrat';
@@ -175,21 +186,18 @@ onMounted(() => {
 }
 
 .works {
-  width: 100%;
   height: 100dvh;
-  background-color: green;
+  background: linear-gradient(green, white);
 }
 
 .price {
-  width: 100%;
   height: 100dvh;
-  background-color: red;
+  background: linear-gradient(red, white);
 }
 
-.works {
-  width: 100%;
+.faq {
   height: 100dvh;
-  background-color: orange;
+  background: linear-gradient(orange, white);
 }
 
 @media (max-width: 768px) {
@@ -224,4 +232,5 @@ onMounted(() => {
     }
   }
 }
+
 </style>

@@ -10,13 +10,18 @@ a {
     color: inherit;
 }
 
-html {
+html, body {
+    position: relative;
     height: 100%;
     width: 100%;
     font-size: 10px;
     scroll-behavior: none;
     overflow: hidden;
 }
+
+// body {
+//     overflow: auto;
+// }
 
 h1, h2, h3, h4, h5, h6 {
     margin: 0;
