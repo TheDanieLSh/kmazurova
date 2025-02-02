@@ -43,7 +43,9 @@
       </footer>
     </div>
   </section>
-  <section class="works"></section>
+  <section class="works">
+    
+  </section>
   <section id="price" class="price"></section>
   <section id="faq" class="faq"></section>
 </template>
@@ -183,8 +185,8 @@ section {
 }
 
 .works {
-  height: 100dvh;
-  background: linear-gradient(green, white);
+  height: fit-content;
+  display: flex;
 }
 
 .price {
