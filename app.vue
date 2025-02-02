@@ -64,15 +64,12 @@ onMounted(() => {
 
   const sections = document.querySelectorAll('section');
   
-  const updateZIndex = () => {
-    sections.forEach((sec, i) => {
-      const rect = sec.getBoundingClientRect();
-      sec.style.zIndex = rect.top <= 0 ? String(i + 1) : '0';
-    });
-  };
-
-  lenis.value.on('scroll', updateZIndex);
-  updateZIndex(); // Запускаем один раз при загрузке
+  let prevSectionsHeight = 0;
+  sections.forEach((sec, i) => {
+    sec.style.top = `${prevSectionsHeight}px`;
+    sec.style.zIndex = String(++i);
+    prevSectionsHeight += parseFloat(window.getComputedStyle(sec).height);
+  })
 })
 
 </script>
