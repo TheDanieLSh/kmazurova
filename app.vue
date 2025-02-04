@@ -1,6 +1,6 @@
 <template>
   <section class="index">
-    <img class="bg_img" src="~/public/images/index/bg_guy.jpg" />
+    <img class="bg_img" src="@/public/images/index/bg_guy.jpg" />
     <div class="index__wrapper">
       <header>
         <h1 class="index__initials">К.М.</h1>
@@ -30,7 +30,7 @@
           target="_blank"
           title="Телеграм канал"
         >
-          <img src="~/public/images/index/tg.svg" />
+          <img src="@/public/images/index/tg.svg" />
         </a>
         <a
           href="https://vk.com/overwhelming_utter_devastation"
@@ -38,13 +38,18 @@
           target="_blank"
           title="Группа в ВК"
         >
-          <img src="~/public/images/index/vk.svg" />
+          <img src="@/public/images/index/vk.svg" />
         </a>
       </footer>
     </div>
   </section>
   <section class="works">
-    
+    <div class="works__first">
+      <img src="/images/works/1-1.JPG" />
+      <img src="/images/works/1-2.JPG" class="weep"/>
+      <img src="/images/works/1-3.JPG" />
+      <img src="/images/works/1-4.JPG" />
+    </div>
   </section>
   <section id="price" class="price"></section>
   <section id="faq" class="faq"></section>
@@ -186,7 +191,17 @@ section {
 
 .works {
   height: fit-content;
-  display: flex;
+  
+  &__first {
+    display: flex;
+    width: 100%;
+    height: 100dvh;
+
+    .weep {
+      position: absolute;
+      // width: 10rem;
+    }
+  }
 }
 
 .price {
@@ -207,7 +222,7 @@ section {
     background-color: black;
 
     .bg_img {
-      content: url('~/public/mobile/images/index/bg.png');
+      content: url('@/public/mobile/images/index/bg.png');
       animation: none;
     }
 
