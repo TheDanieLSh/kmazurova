@@ -45,10 +45,10 @@
   </section>
   <section class="works">
     <div class="works__first">
-      <img src="/images/works/1-1.JPG" />
+      <img src="/images/works/1-1.JPG" class="sadman" />
       <img src="/images/works/1-2.JPG" class="weep"/>
-      <img src="/images/works/1-3.JPG" />
-      <img src="/images/works/1-4.JPG" />
+      <img src="/images/works/1-3.JPG" class="swampsound" />
+      <img src="/images/works/1-4.JPG" class="frogs"/>
     </div>
   </section>
   <section id="price" class="price"></section>
@@ -84,8 +84,12 @@ onMounted(() => {
 <style lang="scss">
 
 section {
-  position: sticky;
   width: 100%;
+
+  img {
+    width: 100%;
+    object-fit: contain;
+  }
 }
 
 .index {
@@ -193,13 +197,32 @@ section {
   height: fit-content;
   
   &__first {
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
     width: 100%;
     height: 100dvh;
+    background-color: #5f5f28;
+
+    .sadman {
+      grid-column: 1;
+      height: 100dvh;
+    }
+
+    .swampsound {
+      grid-column: 2;
+    }
+
+    .frogs {
+      grid-column: 3;
+      height: 100dvh;
+      background-color: #c9c9c9;
+    }
 
     .weep {
       position: absolute;
-      // width: 10rem;
+      width: 35rem;
+      left: 41%;
+      top: 150dvh;
     }
   }
 }
