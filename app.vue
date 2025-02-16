@@ -50,6 +50,18 @@
       <img src="/images/works/1-3.JPG" class="swampsound" />
       <img src="/images/works/1-4.JPG" class="frogs"/>
     </div>
+    <div class="works__second">
+      <div class="second-left">
+        <div class="second-left__top">
+          <img src="/images/works/2-1.JPG" class="lemons" />
+        </div>
+        <div class="second-left__bottom">
+          <img src="/images/works/2-2.JPG" class="scissors"/>
+          <img src="/images/works/2-3.JPG" class="bluesound" />
+        </div>
+      </div>
+      <img src="/images/works/2-4.JPG" class="goosegirl"/>
+    </div>
   </section>
   <section id="price" class="price"></section>
   <section id="faq" class="faq"></section>
@@ -87,7 +99,6 @@ section {
   width: 100%;
 
   img {
-    width: 100%;
     object-fit: contain;
   }
 }
@@ -194,18 +205,20 @@ section {
 }
 
 .works {
-  height: fit-content;
-  
   &__first {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    width: 100%;
-    height: 100dvh;
+    grid-template-rows: 100%;
+    height: 99dvh;
     background-color: #5f5f28;
+
+    img {
+      width: 100%;
+    }
 
     .sadman {
       grid-column: 1;
-      height: 100dvh;
+      height: 100%;
     }
 
     .swampsound {
@@ -214,7 +227,7 @@ section {
 
     .frogs {
       grid-column: 3;
-      height: 100dvh;
+      height: 100%;
       background-color: #c9c9c9;
     }
 
@@ -223,6 +236,37 @@ section {
       width: 35rem;
       left: 41%;
       top: 150dvh;
+    }
+  }
+
+  &__second {
+    height: 99dvh;
+    background-color: #1d1f45;
+    display: flex;
+    justify-content: flex-end;
+    
+    .second-left {
+      width: 100%;
+
+      &__top {
+        justify-content: center;
+      }
+      &__bottom {
+        display: flex;
+        justify-content: center;
+      }
+    }
+
+    .lemons {
+      width: 50rem;
+    }
+
+    .scissors {
+      width: 10rem;
+    }
+
+    .bluesound {
+      width: 30rem;
     }
   }
 }
