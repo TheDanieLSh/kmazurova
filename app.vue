@@ -62,6 +62,18 @@
       </div>
       <img src="/images/works/2-4.JPG" class="goosegirl"/>
     </div>
+    <div class="works__third">
+      <img src="/images/works/3-1.JPG" class="mushhead"/>
+      <div class="third-right">
+        <div class="third-right__top">
+          <img src="/images/works/3-2.JPG" class="serious"/>
+          <img src="/images/works/3-3.JPG" class="redsound" />
+        </div>
+        <div class="third-right__bottom">
+          <img src="/images/works/3-4.JPG" class="alkash" />
+        </div>
+      </div>
+    </div>
   </section>
   <section id="price" class="price"></section>
   <section id="faq" class="faq"></section>
@@ -96,7 +108,9 @@ onMounted(() => {
 <style lang="scss">
 
 section {
+  position: relative;
   width: 100%;
+  z-index: 1;
 
   img {
     object-fit: contain;
@@ -107,9 +121,11 @@ section {
   --accent-color: #ffda8c;
   --indent: 5rem;
 
+  position: fixed;
   height: 100dvh;
   background-color: #bc7109;
   font-family: 'Montserrat';
+  z-index: 0;
 
   .bg_img {
     position: absolute;
@@ -206,10 +222,11 @@ section {
 
 .works {
   &__first {
+    top: 100dvh;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: 100%;
-    height: 99dvh;
+    height: 90dvh;
     background-color: #5f5f28;
 
     img {
@@ -233,40 +250,84 @@ section {
 
     .weep {
       position: absolute;
-      width: 35rem;
-      left: 41%;
-      top: 150dvh;
+      width: 28rem;
+      left: 50%;
+      transform: translateX(-50%);
+      top: 50dvh; 
     }
   }
 
   &__second {
-    height: 99dvh;
+    height: 90dvh;
     background-color: #1d1f45;
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between;
     
     .second-left {
       width: 100%;
+      margin: 3rem;
+      padding-right: 5rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
 
       &__top {
-        justify-content: center;
+        text-align: center;
       }
       &__bottom {
         display: flex;
-        justify-content: center;
+        justify-content: space-between;
+        align-items: center;
       }
     }
 
     .lemons {
-      width: 50rem;
+      width: 55rem;
     }
 
     .scissors {
-      width: 10rem;
+      width: 32rem;
     }
 
     .bluesound {
-      width: 30rem;
+      width: 55rem;
+    }
+  }
+
+  &__third {
+    height: 90dvh;
+    background-color: #c2614e;
+    display: flex;
+    justify-content: space-between;
+    
+    .third-right {
+      width: 100%;
+      margin: 3rem;
+      padding-right: 5rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+
+      &__top {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      &__bottom {
+        text-align: center;
+      }
+    }
+
+    .serious {
+      width: 32rem;
+    }
+
+    .redsound {
+      width: 55rem;
+    }
+
+    .alkash {
+      width: 55rem;
     }
   }
 }
