@@ -45,10 +45,18 @@
   </section>
   <section class="works">
     <div class="works__first">
-      <img src="/images/works/1-1.JPG" class="sadman" />
-      <img src="/images/works/1-2.JPG" class="weep"/>
-      <img src="/images/works/1-3.JPG" class="swampsound" />
-      <img src="/images/works/1-4.JPG" class="frogs"/>
+      <div class="cell sadman">
+        <img src="/images/works/1-1.JPG" />
+      </div>
+      <div class="cell swampsound">
+        <img src="/images/works/1-3.JPG" />
+      </div>
+      <div class="cell weep">
+        <img src="/images/works/1-2.JPG" />
+      </div>
+      <div class="cell frogs">
+        <img src="/images/works/1-4.JPG" />
+      </div>
     </div>
     <div class="works__second">
       <div class="second-left">
@@ -223,38 +231,39 @@ section {
 .works {
   &__first {
     top: 100dvh;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: 100%;
-    height: 90dvh;
+    height: 100dvh;
     background-color: #5f5f28;
+    display: grid;
+    grid-template-columns: 1.4fr 1fr 1fr;
+    grid-template-rows: 1.1fr 1fr;
+    grid-template-areas: 
+      "sadman swampsound frogs"
+      "sadman weep frogs";
 
+    .cell {
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      position: relative;
+    }
+    
     img {
       width: 100%;
-    }
-
-    .sadman {
-      grid-column: 1;
       height: 100%;
+      object-fit: cover;
     }
 
-    .swampsound {
-      grid-column: 2;
-    }
-
-    .frogs {
-      grid-column: 3;
-      height: 100%;
-      background-color: #c9c9c9;
-    }
-
+    .sadman { grid-area: sadman; }
+    .swampsound { grid-area: swampsound; }
     .weep {
-      position: absolute;
-      width: 28rem;
-      left: 50%;
-      transform: translateX(-50%);
-      top: 50dvh; 
+      grid-area: weep;
+      padding: 24px;
+      
+      img {
+        object-fit: contain;
+      }
     }
+    .frogs { grid-area: frogs; }
   }
 
   &__second {
