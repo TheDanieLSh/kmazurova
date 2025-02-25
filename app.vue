@@ -44,7 +44,7 @@
     </div>
   </section>
   <section class="works">
-    <div class="works__first">
+    <div class="works__first works__section">
       <div class="cell sadman">
         <img src="/images/works/1-1.JPG" />
       </div>
@@ -58,19 +58,19 @@
         <img src="/images/works/1-4.JPG" />
       </div>
     </div>
-    <div class="works__second">
+    <div class="works__second works__section">
       <div class="second-left">
         <div class="second-left__top">
-          <img src="/images/works/2-1.JPG" class="lemons" />
+          <img src="/images/works/2-1.PNG" class="lemons" />
         </div>
         <div class="second-left__bottom">
-          <img src="/images/works/2-2.JPG" class="scissors"/>
+          <img src="/images/works/2-2.PNG" class="scissors"/>
           <img src="/images/works/2-3.JPG" class="bluesound" />
         </div>
       </div>
       <img src="/images/works/2-4.JPG" class="goosegirl"/>
     </div>
-    <div class="works__third">
+    <div class="works__third works__section">
       <img src="/images/works/3-1.JPG" class="mushhead"/>
       <div class="third-right">
         <div class="third-right__top">
@@ -229,22 +229,25 @@ section {
 }
 
 .works {
+  &__section {
+    height: 95dvh;
+  }
+
   &__first {
     top: 100dvh;
-    height: 100dvh;
     background-color: #5f5f28;
     display: grid;
-    grid-template-columns: 1.4fr 1fr 1fr;
+    grid-template-columns: 1.2fr 1fr 1fr;
     grid-template-rows: 1.1fr 1fr;
     grid-template-areas: 
       "sadman swampsound frogs"
       "sadman weep frogs";
 
     .cell {
+      position: relative;
       width: 100%;
       height: 100%;
       overflow: hidden;
-      position: relative;
     }
     
     img {
@@ -267,7 +270,6 @@ section {
   }
 
   &__second {
-    height: 90dvh;
     background-color: #1d1f45;
     display: flex;
     justify-content: space-between;
@@ -279,19 +281,18 @@ section {
       display: flex;
       flex-direction: column;
       justify-content: space-between;
+      align-items: center;
+      gap: 2rem;
 
-      &__top {
-        text-align: center;
-      }
       &__bottom {
         display: flex;
-        justify-content: space-between;
         align-items: center;
+        gap: 20rem;
       }
     }
 
     .lemons {
-      width: 55rem;
+      width: 32rem;
     }
 
     .scissors {
@@ -304,7 +305,6 @@ section {
   }
 
   &__third {
-    height: 90dvh;
     background-color: #c2614e;
     display: flex;
     justify-content: space-between;
