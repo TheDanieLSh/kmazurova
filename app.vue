@@ -82,6 +82,22 @@
         </div>
       </div>
     </div>
+    <div class="works__fourth works__section">
+      <div class="third-line">
+        <div class="titled-work">
+          <img src="/images/works/4-1.JPG" class="cameras" />
+          <h3>СЛЕПЫЕ</h3>
+        </div>
+        <div class="titled-work">
+          <img src="/images/works/4-2.JPG" class="purplemetro" />
+          <h3>ПРОИГРЫШ</h3>
+        </div>
+        <div class="titled-work">
+          <img src="/images/works/4-3.JPG" class="bluegirl" />
+          <h3>ОБГОРЕВШАЯ</h3>
+        </div>
+      </div>
+    </div>
   </section>
   <section id="price" class="price"></section>
   <section id="faq" class="faq"></section>
@@ -229,6 +245,7 @@ section {
 }
 
 .works {
+
   &__section {
     height: 95dvh;
   }
@@ -284,6 +301,11 @@ section {
       align-items: center;
       gap: 2rem;
 
+      &__top {
+        width: 100%;
+        text-align: center;
+      }
+
       &__bottom {
         display: flex;
         align-items: center;
@@ -292,7 +314,7 @@ section {
     }
 
     .lemons {
-      width: 32rem;
+      width: 26%;
     }
 
     .scissors {
@@ -337,6 +359,55 @@ section {
 
     .alkash {
       width: 55rem;
+    }
+  }
+
+  &__fourth {
+    background-color: white;
+    display: flex;
+    justify-content: center;
+
+    .third-line {
+      position: relative;
+      width: 97%;
+      height: 80%;
+      margin-top: 7rem;
+      display: grid; 
+      grid-template-columns: 1fr 1fr 1fr; 
+      grid-template-rows: 1fr; 
+      gap: 0px 0px; 
+      grid-template-areas: 
+        "left center right"; 
+
+      .titled-work {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+
+        h3 {
+          color: black;
+        }
+      }
+
+      .cameras {
+        grid-area: left;
+      }
+
+      .purplemetro {
+        grid-area: center;
+        scale: 85%;
+      }
+
+      .bluegirl {
+        grid-area: right;
+      }
     }
   }
 }
