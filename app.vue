@@ -82,7 +82,23 @@
         </div>
       </div>
     </div>
-    <div class="works__fourth works__section">
+    <ThreeWorks
+      :images="{
+        left: {
+          src: '/images/works/4-1.JPG',
+          title: 'СЛЕПЫЕ',
+        },
+        middle: {
+          src: '/images/works/4-2.JPG',
+          title: 'ПРОИГРЫШ',
+        },
+        right: {
+          src: '/images/works/4-3.JPG',
+          title: 'ОБГОРЕВШАЯ',
+        },
+      }"
+    />
+    <!-- <div class="works__fourth works__section">
       <div class="works-line">
         <div class="titled-work">
           <img src="/images/works/4-1.JPG" class="cameras" />
@@ -97,8 +113,8 @@
           <h3>ОБГОРЕВШАЯ</h3>
         </div>
       </div>
-    </div>
-    <div class="works__fifth works__section">
+    </div> -->
+    <!-- <div class="works__fifth works__section">
       <div class="works-line">
         <div class="titled-work">
           <img src="/images/works/5-1.HEIC" class="cameras" />
@@ -112,8 +128,8 @@
           <img src="/images/works/5-3.JPG" class="bluegirl" />
           <h3>ОБГОРЕВШАЯ</h3>
         </div>
-      </div>
-    </div>
+      </div> -->
+    <!-- </div> -->
   </section>
   <section id="price" class="price"></section>
   <section id="faq" class="faq"></section>
@@ -431,54 +447,54 @@ section {
     }
   }
 
-  &__fifth {
-    background-color: white;
-    display: flex;
-    justify-content: center;
+  // &__fifth {
+  //   background-color: white;
+  //   display: flex;
+  //   justify-content: center;
 
-    .works-line {
-      position: relative;
-      width: 97%;
-      height: 80%;
-      margin-top: 7rem;
-      display: grid; 
-      grid-template-columns: 1fr 1fr 1fr; 
-      grid-template-rows: 1fr; 
-      gap: 0px 0px; 
-      grid-template-areas: 
-        "left center right"; 
+  //   .works-line {
+  //     position: relative;
+  //     width: 97%;
+  //     height: 80%;
+  //     margin-top: 7rem;
+  //     display: grid; 
+  //     grid-template-columns: 1fr 1fr 1fr; 
+  //     grid-template-rows: 1fr; 
+  //     gap: 0px 0px; 
+  //     grid-template-areas: 
+  //       "left center right"; 
 
-      .titled-work {
-        position: relative;
-        width: 100%;
-        height: 100%;
-        overflow: hidden;
+  //     .titled-work {
+  //       position: relative;
+  //       width: 100%;
+  //       height: 100%;
+  //       overflow: hidden;
 
-        img {
-          width: 100%;
-          height: 100%;
-          object-fit: cover;
-        }
+  //       img {
+  //         width: 100%;
+  //         height: 100%;
+  //         object-fit: cover;
+  //       }
 
-        h3 {
-          color: black;
-        }
-      }
+  //       h3 {
+  //         color: black;
+  //       }
+  //     }
 
-      .feet {
-        grid-area: left;
-      }
+  //     .feet {
+  //       grid-area: left;
+  //     }
 
-      .redandblue {
-        grid-area: center;
-        scale: 85%;
-      }
+  //     .redandblue {
+  //       grid-area: center;
+  //       scale: 85%;
+  //     }
 
-      .flowersdog {
-        grid-area: right;
-      }
-    }
-  }
+  //     .flowersdog {
+  //       grid-area: right;
+  //     }
+  //   }
+  // }
 }
 
 .price {
