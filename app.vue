@@ -83,7 +83,7 @@
       </div>
     </div>
     <div class="works__fourth works__section">
-      <div class="third-line">
+      <div class="works-line">
         <div class="titled-work">
           <img src="/images/works/4-1.JPG" class="cameras" />
           <h3>СЛЕПЫЕ</h3>
@@ -94,6 +94,22 @@
         </div>
         <div class="titled-work">
           <img src="/images/works/4-3.JPG" class="bluegirl" />
+          <h3>ОБГОРЕВШАЯ</h3>
+        </div>
+      </div>
+    </div>
+    <div class="works__fifth works__section">
+      <div class="works-line">
+        <div class="titled-work">
+          <img src="/images/works/5-1.HEIC" class="cameras" />
+          <h3>СЛЕПЫЕ</h3>
+        </div>
+        <div class="titled-work">
+          <img src="/images/works/5-2.JPG" class="purplemetro" />
+          <h3>ПРОИГРЫШ</h3>
+        </div>
+        <div class="titled-work">
+          <img src="/images/works/5-3.JPG" class="bluegirl" />
           <h3>ОБГОРЕВШАЯ</h3>
         </div>
       </div>
@@ -273,8 +289,12 @@ section {
       object-fit: cover;
     }
 
-    .sadman { grid-area: sadman; }
-    .swampsound { grid-area: swampsound; }
+    .sadman {
+      grid-area: sadman;
+    }
+    .swampsound {
+      grid-area: swampsound;
+    }
     .weep {
       grid-area: weep;
       padding: 24px;
@@ -367,7 +387,7 @@ section {
     display: flex;
     justify-content: center;
 
-    .third-line {
+    .works-line {
       position: relative;
       width: 97%;
       height: 80%;
@@ -406,6 +426,55 @@ section {
       }
 
       .bluegirl {
+        grid-area: right;
+      }
+    }
+  }
+
+  &__fifth {
+    background-color: white;
+    display: flex;
+    justify-content: center;
+
+    .works-line {
+      position: relative;
+      width: 97%;
+      height: 80%;
+      margin-top: 7rem;
+      display: grid; 
+      grid-template-columns: 1fr 1fr 1fr; 
+      grid-template-rows: 1fr; 
+      gap: 0px 0px; 
+      grid-template-areas: 
+        "left center right"; 
+
+      .titled-work {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+
+        h3 {
+          color: black;
+        }
+      }
+
+      .feet {
+        grid-area: left;
+      }
+
+      .redandblue {
+        grid-area: center;
+        scale: 85%;
+      }
+
+      .flowersdog {
         grid-area: right;
       }
     }
