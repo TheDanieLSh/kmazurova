@@ -83,53 +83,22 @@
       </div>
     </div>
     <ThreeWorks
+      v-for="image in imagePacks"
       :images="{
         left: {
-          src: '/images/works/4-1.JPG',
-          title: 'СЛЕПЫЕ',
+          src: image.leftSrc,
+          title: image.leftTitle,
         },
         middle: {
-          src: '/images/works/4-2.JPG',
-          title: 'ПРОИГРЫШ',
+          src: image.middleSrc,
+          title: image.middleTitle,
         },
         right: {
-          src: '/images/works/4-3.JPG',
-          title: 'ОБГОРЕВШАЯ',
+          src: image.rightSrc,
+          title: image.rightTitle,
         },
       }"
     />
-    <!-- <div class="works__fourth works__section">
-      <div class="works-line">
-        <div class="titled-work">
-          <img src="/images/works/4-1.JPG" class="cameras" />
-          <h3>СЛЕПЫЕ</h3>
-        </div>
-        <div class="titled-work">
-          <img src="/images/works/4-2.JPG" class="purplemetro" />
-          <h3>ПРОИГРЫШ</h3>
-        </div>
-        <div class="titled-work">
-          <img src="/images/works/4-3.JPG" class="bluegirl" />
-          <h3>ОБГОРЕВШАЯ</h3>
-        </div>
-      </div>
-    </div> -->
-    <!-- <div class="works__fifth works__section">
-      <div class="works-line">
-        <div class="titled-work">
-          <img src="/images/works/5-1.HEIC" class="cameras" />
-          <h3>СЛЕПЫЕ</h3>
-        </div>
-        <div class="titled-work">
-          <img src="/images/works/5-2.JPG" class="purplemetro" />
-          <h3>ПРОИГРЫШ</h3>
-        </div>
-        <div class="titled-work">
-          <img src="/images/works/5-3.JPG" class="bluegirl" />
-          <h3>ОБГОРЕВШАЯ</h3>
-        </div>
-      </div> -->
-    <!-- </div> -->
   </section>
   <section id="price" class="price"></section>
   <section id="faq" class="faq"></section>
@@ -158,6 +127,65 @@ onMounted(() => {
     prevSectionsHeight += parseFloat(window.getComputedStyle(sec).height);
   })
 })
+
+const imagePacks = [
+  {
+    leftSrc: '/images/works/4-1.JPG',
+    leftTitle: 'СЛЕПЫЕ',
+    middleSrc: '/images/works/4-2.JPG',
+    middleTitle: 'ПРОИГРЫШ',
+    rightSrc: '/images/works/4-3.JPG',
+    rightTitle: 'ОБГОРЕВШАЯ',
+  },
+  {
+    leftSrc: '/images/works/5-1.JPG',
+    leftTitle: 'НОСТАЛЬГИЯ',
+    middleSrc: '/images/works/5-2.JPG',
+    middleTitle: 'РАЗГОВОР',
+    rightSrc: '/images/works/5-3.JPG',
+    rightTitle: 'БОРЗАЯ В САДУ',
+  },
+  {
+    leftSrc: '/images/works/6-1.JPG',
+    leftTitle: 'НОЧЬ',
+    middleSrc: '/images/works/6-2.JPG',
+    middleTitle: 'ТОРЖЕСТВО',
+    rightSrc: '/images/works/6-3.JPG',
+    rightTitle: 'КАРПЫ',
+  },
+  {
+    leftSrc: '/images/works/7-1.PNG',
+    leftTitle: 'ОСЕНЬ',
+    middleSrc: '/images/works/7-2.JPG',
+    middleTitle: 'МУЗА',
+    rightSrc: '/images/works/7-3.JPG',
+    rightTitle: 'ПРОГУЛКА',
+  },
+  {
+    leftSrc: '/images/works/8-1.JPG',
+    leftTitle: 'МОР',
+    middleSrc: '/images/works/8-2.JPG',
+    middleTitle: 'ПРОИГРЫШ. 2',
+    rightSrc: '/images/works/8-3.JPG',
+    rightTitle: 'ПИОНЫ',
+  },
+  {
+    leftSrc: '/images/works/9-1.JPG',
+    leftTitle: 'ЗАВТРА',
+    middleSrc: '/images/works/9-2.JPG',
+    middleTitle: 'ЛИМОНЫ',
+    rightSrc: '/images/works/9-3.JPG',
+    rightTitle: 'ПРИВЯЗАН',
+  },
+  {
+    leftSrc: '/images/works/10-1.JPG',
+    leftTitle: 'ПРОИГРЫШ. 3',
+    middleSrc: '/images/works/10-2.PNG',
+    middleTitle: 'ГОРОД',
+    rightSrc: '/images/works/10-3.JPG',
+    rightTitle: 'ЛЕТАЛ',
+  },
+];
 
 </script>
 
