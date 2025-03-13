@@ -43,63 +43,6 @@
       </footer>
     </div>
   </section>
-  <section class="works">
-    <div class="works__first works__section">
-      <div class="cell sadman">
-        <img src="/images/works/1-1.JPG" />
-      </div>
-      <div class="cell swampsound">
-        <img src="/images/works/1-3.JPG" />
-      </div>
-      <div class="cell weep">
-        <img src="/images/works/1-2.JPG" />
-      </div>
-      <div class="cell frogs">
-        <img src="/images/works/1-4.JPG" />
-      </div>
-    </div>
-    <div class="works__second works__section">
-      <div class="second-left">
-        <div class="second-left__top">
-          <img src="/images/works/2-1.PNG" class="lemons" />
-        </div>
-        <div class="second-left__bottom">
-          <img src="/images/works/2-2.PNG" class="scissors"/>
-          <img src="/images/works/2-3.JPG" class="bluesound" />
-        </div>
-      </div>
-      <img src="/images/works/2-4.JPG" class="goosegirl"/>
-    </div>
-    <div class="works__third works__section">
-      <img src="/images/works/3-1.JPG" class="mushhead"/>
-      <div class="third-right">
-        <div class="third-right__top">
-          <img src="/images/works/3-2.JPG" class="serious"/>
-          <img src="/images/works/3-3.JPG" class="redsound" />
-        </div>
-        <div class="third-right__bottom">
-          <img src="/images/works/3-4.JPG" class="alkash" />
-        </div>
-      </div>
-    </div>
-    <ThreeWorks
-      v-for="image in imagePacks"
-      :images="{
-        left: {
-          src: image.leftSrc,
-          title: image.leftTitle,
-        },
-        middle: {
-          src: image.middleSrc,
-          title: image.middleTitle,
-        },
-        right: {
-          src: image.rightSrc,
-          title: image.rightTitle,
-        },
-      }"
-    />
-  </section>
   <section id="price" class="price"></section>
   <section id="faq" class="faq"></section>
 </template>
@@ -127,65 +70,6 @@ onMounted(() => {
     prevSectionsHeight += parseFloat(window.getComputedStyle(sec).height);
   })
 })
-
-const imagePacks = [
-  {
-    leftSrc: '/images/works/4-1.JPG',
-    leftTitle: 'СЛЕПЫЕ',
-    middleSrc: '/images/works/4-2.JPG',
-    middleTitle: 'ПРОИГРЫШ',
-    rightSrc: '/images/works/4-3.JPG',
-    rightTitle: 'ОБГОРЕВШАЯ',
-  },
-  {
-    leftSrc: '/images/works/5-1.JPG',
-    leftTitle: 'НОСТАЛЬГИЯ',
-    middleSrc: '/images/works/5-2.JPG',
-    middleTitle: 'РАЗГОВОР',
-    rightSrc: '/images/works/5-3.JPG',
-    rightTitle: 'БОРЗАЯ В САДУ',
-  },
-  {
-    leftSrc: '/images/works/6-1.JPG',
-    leftTitle: 'НОЧЬ',
-    middleSrc: '/images/works/6-2.JPG',
-    middleTitle: 'ТОРЖЕСТВО',
-    rightSrc: '/images/works/6-3.JPG',
-    rightTitle: 'КАРПЫ',
-  },
-  {
-    leftSrc: '/images/works/7-1.PNG',
-    leftTitle: 'ОСЕНЬ',
-    middleSrc: '/images/works/7-2.JPG',
-    middleTitle: 'МУЗА',
-    rightSrc: '/images/works/7-3.JPG',
-    rightTitle: 'ПРОГУЛКА',
-  },
-  {
-    leftSrc: '/images/works/8-1.JPG',
-    leftTitle: 'МОР',
-    middleSrc: '/images/works/8-2.JPG',
-    middleTitle: 'ПРОИГРЫШ. 2',
-    rightSrc: '/images/works/8-3.JPG',
-    rightTitle: 'ПИОНЫ',
-  },
-  {
-    leftSrc: '/images/works/9-1.JPG',
-    leftTitle: 'ЗАВТРА',
-    middleSrc: '/images/works/9-2.JPG',
-    middleTitle: 'ЛИМОНЫ',
-    rightSrc: '/images/works/9-3.JPG',
-    rightTitle: 'ПРИВЯЗАН',
-  },
-  {
-    leftSrc: '/images/works/10-1.JPG',
-    leftTitle: 'ПРОИГРЫШ. 3',
-    middleSrc: '/images/works/10-2.PNG',
-    middleTitle: 'ГОРОД',
-    rightSrc: '/images/works/10-3.JPG',
-    rightTitle: 'ЛЕТАЛ',
-  },
-];
 
 </script>
 
@@ -474,55 +358,6 @@ section {
       }
     }
   }
-
-  // &__fifth {
-  //   background-color: white;
-  //   display: flex;
-  //   justify-content: center;
-
-  //   .works-line {
-  //     position: relative;
-  //     width: 97%;
-  //     height: 80%;
-  //     margin-top: 7rem;
-  //     display: grid; 
-  //     grid-template-columns: 1fr 1fr 1fr; 
-  //     grid-template-rows: 1fr; 
-  //     gap: 0px 0px; 
-  //     grid-template-areas: 
-  //       "left center right"; 
-
-  //     .titled-work {
-  //       position: relative;
-  //       width: 100%;
-  //       height: 100%;
-  //       overflow: hidden;
-
-  //       img {
-  //         width: 100%;
-  //         height: 100%;
-  //         object-fit: cover;
-  //       }
-
-  //       h3 {
-  //         color: black;
-  //       }
-  //     }
-
-  //     .feet {
-  //       grid-area: left;
-  //     }
-
-  //     .redandblue {
-  //       grid-area: center;
-  //       scale: 85%;
-  //     }
-
-  //     .flowersdog {
-  //       grid-area: right;
-  //     }
-  //   }
-  // }
 }
 
 .price {
