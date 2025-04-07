@@ -1,6 +1,6 @@
 <template>
-    <div class="works">
-        <div class="works__first works__section">
+    <div class="works slider-container">
+        <div class="works__first works__section slide">
             <div class="cell sadman">
                 <img src="/images/works/1-1.JPG" />
             </div>
@@ -14,7 +14,7 @@
                 <img src="/images/works/1-4.JPG" />
             </div>
         </div>
-        <div class="works__second works__section">
+        <div class="works__second works__section slide">
             <div class="second-left">
                 <div class="second-left__top">
                     <img src="/images/works/2-1.PNG" class="lemons" />
@@ -26,7 +26,7 @@
             </div>
             <img src="/images/works/2-4.JPG" class="goosegirl" />
         </div>
-        <div class="works__third works__section">
+        <div class="works__third works__section slide">
             <img src="/images/works/3-1.JPG" class="mushhead" />
             <div class="third-right">
                 <div class="third-right__top">
@@ -38,7 +38,7 @@
                 </div>
             </div>
         </div>
-        <ThreeWorks v-for="image in imagePacks" :images="{
+        <ThreeWorks class="slide" v-for="image in imagePacks" :images="{
             left: {
                 src: image.leftSrc,
                 title: image.leftTitle,
@@ -56,19 +56,6 @@
 </template>
 
 <script setup lang="ts">
-import { onMounted } from 'vue'
-import Lenis from 'lenis'
-import 'lenis/dist/lenis.css'
-
-const lenis = ref<Lenis | null>(null);
-
-onMounted(() => {
-    lenis.value = new Lenis({
-        autoRaf: true,
-        smoothWheel: true,
-        syncTouch: true,
-    })
-})
 
 const imagePacks = [
     {
