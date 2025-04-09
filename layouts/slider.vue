@@ -16,30 +16,10 @@
     </div> -->
 </template>
 
-<script setup lang="ts">
-import { onMounted, onUnmounted, ref } from 'vue';
+<script lang="ts">
 import { gsap } from 'gsap';
 
-const currentIndex = ref(0);
-const isAnimating = ref(false);
-const startX = ref(0);
-const startY = ref(0);
-const endX = ref(0);
-const endY = ref(0);
-
-const initSlides = () => {
-    const slides = document.querySelectorAll('.slide');
-    slides.forEach((slide, idx) => {
-        gsap.set(slide, {
-            y: idx === currentIndex.value
-            ? '0%'
-            : idx < currentIndex.value
-            ? '-100%': '100%',
-        });
-    });
-}
-
-export default Vue.extend({
+export default {
     mounted() {
         this.initSlides();
         window.addEventListener('wheel', this.onWheel, { passive: true });
@@ -53,8 +33,8 @@ export default Vue.extend({
     },
     data() {
         return {
+            slides: [] as Element[],
             currentIndex: 0,
-            pages: [IndexPage, WorksPage, PricePage, FaqPage],
             isAnimating: false,
             startX: 0,
             startY: 0,
@@ -64,8 +44,8 @@ export default Vue.extend({
     },
     methods: {
         initSlides() {
-            const slides = document.querySelectorAll('.slide');
-            slides.forEach((slide, index) => {
+            this.slides = [...document.querySelectorAll('.slide')];
+            this.slides.forEach((slide, index) => {
                 gsap.set(slide, {
                     y: index === this.currentIndex ? '0%' : index < this.currentIndex ? '-100%' : '100%',
                 });
@@ -81,7 +61,7 @@ export default Vue.extend({
             }
         },
         slideScroll(direction: string) {
-            const slidesCount = this.pages.length;
+            const slidesCount = this.slides.length;
             /* Деление по модулю при вычислении ниже нужно для того чтобы
             не выходить за пределы возможных значений индексов (2 % 3 = 2; 3 % 3 = 0) */
             const nextIndex = direction === 'next' ?
@@ -138,7 +118,7 @@ export default Vue.extend({
             }
         },
     },
-});
+};
 </script>
 
 <style lang="scss">
