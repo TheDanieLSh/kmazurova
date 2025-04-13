@@ -20,7 +20,7 @@
 <script setup lang="ts">
 import { defineProps } from 'vue';
 
-const props = defineProps<{
+defineProps<{
     images: {
         left: {
             src: string,

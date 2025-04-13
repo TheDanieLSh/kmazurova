@@ -56,6 +56,9 @@
 </template>
 
 <script setup lang="ts">
+definePageMeta({
+    layout: 'slider'
+})
 
 const imagePacks = [
     {

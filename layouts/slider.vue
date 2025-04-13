@@ -1,19 +1,5 @@
 <template>
     <slot />
-    <!-- <div class="slider-container">
-        <div
-            class="slide"
-            v-for="(PageComponent, index) in pages"
-            :key="index"
-            :class="{ active: index === currentIndex }"
-            :style="{
-                transform: index === currentIndex ? 'translateY(0)' : index < currentIndex ? 'translateY(-100%)' : 'translateY(100%)',
-                // visibility: shouldRenderSlide(index) ? 'visible' : 'hidden',
-            }"
-        >
-            <component :is="PageComponent" :goToSlide="goToSlide" />
-        </div>
-    </div> -->
 </template>
 
 <script lang="ts">
