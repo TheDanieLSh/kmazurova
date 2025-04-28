@@ -231,6 +231,8 @@ const imagePacks = [
                 display: flex;
                 justify-content: space-between;
                 align-items: center;
+                align-self: center;
+                width: 85%;
             }
 
             &__bottom {
@@ -248,55 +250,6 @@ const imagePacks = [
 
         .alkash {
             width: 55rem;
-        }
-    }
-
-    &__fourth {
-        background-color: white;
-        display: flex;
-        justify-content: center;
-
-        .works-line {
-            position: relative;
-            width: 97%;
-            height: 80%;
-            margin-top: 7rem;
-            display: grid;
-            grid-template-columns: 1fr 1fr 1fr;
-            grid-template-rows: 1fr;
-            gap: 0px 0px;
-            grid-template-areas:
-                "left center right";
-
-            .titled-work {
-                position: relative;
-                width: 100%;
-                height: 100%;
-                overflow: hidden;
-
-                img {
-                    width: 100%;
-                    height: 100%;
-                    object-fit: cover;
-                }
-
-                h3 {
-                    color: black;
-                }
-            }
-
-            .cameras {
-                grid-area: left;
-            }
-
-            .purplemetro {
-                grid-area: center;
-                scale: 85%;
-            }
-
-            .bluegirl {
-                grid-area: right;
-            }
         }
     }
 }

@@ -1,18 +1,20 @@
 <template>
     <div class="three-works works__section">
-        <div class="works-line">
-            <div class="titled-work">
+        <div class="pics-line">
+            <div class="work-image">
                 <img :src=images.left.src class="left" />
-                <h3>{{ images.left.title }}</h3>
             </div>
-            <div class="titled-work">
+            <div class="work-image">
                 <img :src=images.middle.src class="middle" />
-                <h3>{{ images.middle.title }}</h3>
             </div>
-            <div class="titled-work">
+            <div class="work-image">
                 <img :src=images.right.src class="right" />
-                <h3>{{ images.right.title }}</h3>
             </div>
+        </div>
+        <div class="names-line">
+            <h3 class="work-name">{{ images.left.title }}</h3>
+            <h3 class="work-name">{{ images.middle.title }}</h3>
+            <h3 class="work-name">{{ images.right.title }}</h3>
         </div>
     </div>
 </template>
@@ -43,9 +45,11 @@ defineProps<{
 .three-works {
     background-color: white;
     display: flex;
-    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 3rem;
 
-    .works-line {
+    .pics-line {
         position: relative;
         width: 97%;
         height: 80%;
@@ -57,7 +61,7 @@ defineProps<{
         grid-template-areas:
             "left center right";
 
-        .titled-work {
+        .work-image {
             position: relative;
             width: 100%;
             height: 100%;
@@ -85,6 +89,19 @@ defineProps<{
 
         .right {
             grid-area: right;
+        }
+    }
+
+    .names-line {
+        display: flex;
+        justify-content: space-between;
+        width: 73%;
+
+        .work-name {
+            color: black;
+            font-size: 3rem;
+            font-family: 'Montserrat';
+            font-weight: bold;
         }
     }
 }
