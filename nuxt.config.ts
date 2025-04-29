@@ -24,6 +24,9 @@ export default defineNuxtConfig({
       ],
     },
   },
+  runtimeConfig: {
+    routerBase: process.env.ROUTER_BASE,
+  },
   css: [
     '@/assets/styles/global.scss',
   ],

@@ -2,13 +2,13 @@
     <div class="three-works works__section">
         <div class="pics-line">
             <div class="work-image">
-                <img :src=images.left.src class="left" />
+                <img :src="config.routerBase + images.left.src" class="left" />
             </div>
             <div class="work-image">
-                <img :src=images.middle.src class="middle" />
+                <img :src="config.routerBase + images.middle.src" class="middle" />
             </div>
             <div class="work-image">
-                <img :src=images.right.src class="right" />
+                <img :src="config.routerBase + images.right.src" class="right" />
             </div>
         </div>
         <div class="names-line">
@@ -21,6 +21,8 @@
 
 <script setup lang="ts">
 import { defineProps } from 'vue';
+
+const config = useRuntimeConfig();
 
 defineProps<{
     images: {
