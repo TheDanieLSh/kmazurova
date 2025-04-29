@@ -21,6 +21,9 @@ jobs:
         uses: actions/upload-pages-artifact@v3
         with:
           path: ./.output/public
+      - name: Replace .env file
+        run: |
+          mv .env.prod .env    
   # Deployment job
   deploy:
     # Add a dependency to the build job
