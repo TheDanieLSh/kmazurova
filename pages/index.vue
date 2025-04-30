@@ -322,7 +322,7 @@ section {
         background-color: black;
 
         .bg_img {
-            content: url('@/public/mobile/images/index/bg.png');
+            content: url('@/public/mobile/images/index/bg.webp');
             animation: none;
         }
 
