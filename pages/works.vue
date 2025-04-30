@@ -2,39 +2,39 @@
     <div class="works slider-container">
         <div class="works__first works__section slide">
             <div class="cell sadman">
-                <img src="/images/works/1-1.JPG" />
+                <img src="/images/works/1-1.webp" />
             </div>
             <div class="cell swampsound">
-                <img src="/images/works/1-3.JPG" />
+                <img src="/images/works/1-3.webp" />
             </div>
             <div class="cell weep">
-                <img src="/images/works/1-2.JPG" />
+                <img src="/images/works/1-2.webp" />
             </div>
             <div class="cell frogs">
-                <img src="/images/works/1-4.JPG" />
+                <img src="/images/works/1-4.webp" />
             </div>
         </div>
         <div class="works__second works__section slide">
             <div class="second-left">
                 <div class="second-left__top">
-                    <img src="/images/works/2-1.PNG" class="lemons" />
+                    <img src="/images/works/2-1.webp" class="lemons" />
                 </div>
                 <div class="second-left__bottom">
-                    <img src="/images/works/2-2.PNG" class="scissors" />
-                    <img src="/images/works/2-3.JPG" class="bluesound" />
+                    <img src="/images/works/2-2.webp" class="scissors" />
+                    <img src="/images/works/2-3.webp" class="bluesound" />
                 </div>
             </div>
-            <img src="/images/works/2-4.JPG" class="goosegirl" />
+            <img src="/images/works/2-4.webp" class="goosegirl" />
         </div>
         <div class="works__third works__section slide">
-            <img src="/images/works/3-1.JPG" class="mushhead" />
+            <img src="/images/works/3-1.webp" class="mushhead" />
             <div class="third-right">
                 <div class="third-right__top">
-                    <img src="/images/works/3-2.JPG" class="serious" />
-                    <img src="/images/works/3-3.JPG" class="redsound" />
+                    <img src="/images/works/3-2.webp" class="serious" />
+                    <img src="/images/works/3-3.webp" class="redsound" />
                 </div>
                 <div class="third-right__bottom">
-                    <img src="/images/works/3-4.JPG" class="alkash" />
+                    <img src="/images/works/3-4.webp" class="alkash" />
                 </div>
             </div>
         </div>
@@ -62,59 +62,59 @@ definePageMeta({
 
 const imagePacks = [
     {
-        leftSrc: 'images/works/4-1.JPG',
+        leftSrc: 'images/works/4-1.webp',
         leftTitle: 'СЛЕПЫЕ',
-        middleSrc: 'images/works/4-2.JPG',
+        middleSrc: 'images/works/4-2.webp',
         middleTitle: 'ПРОИГРЫШ',
-        rightSrc: 'images/works/4-3.JPG',
+        rightSrc: 'images/works/4-3.webp',
         rightTitle: 'ОБГОРЕВШАЯ',
     },
     {
-        leftSrc: 'images/works/5-1.JPG',
+        leftSrc: 'images/works/5-1.webp',
         leftTitle: 'НОСТАЛЬГИЯ',
-        middleSrc: 'images/works/5-2.JPG',
+        middleSrc: 'images/works/5-2.webp',
         middleTitle: 'РАЗГОВОР',
-        rightSrc: 'images/works/5-3.JPG',
+        rightSrc: 'images/works/5-3.webp',
         rightTitle: 'БОРЗАЯ В САДУ',
     },
     {
-        leftSrc: 'images/works/6-1.JPG',
+        leftSrc: 'images/works/6-1.webp',
         leftTitle: 'НОЧЬ',
-        middleSrc: 'images/works/6-2.JPG',
+        middleSrc: 'images/works/6-2.webp',
         middleTitle: 'ТОРЖЕСТВО',
-        rightSrc: 'images/works/6-3.JPG',
+        rightSrc: 'images/works/6-3.webp',
         rightTitle: 'КАРПЫ',
     },
     {
-        leftSrc: 'images/works/7-1.PNG',
+        leftSrc: 'images/works/7-1.webp',
         leftTitle: 'ОСЕНЬ',
-        middleSrc: 'images/works/7-2.JPG',
+        middleSrc: 'images/works/7-2.webp',
         middleTitle: 'МУЗА',
-        rightSrc: 'images/works/7-3.JPG',
+        rightSrc: 'images/works/7-3.webp',
         rightTitle: 'ПРОГУЛКА',
     },
     {
-        leftSrc: 'images/works/8-1.JPG',
+        leftSrc: 'images/works/8-1.webp',
         leftTitle: 'МОР',
-        middleSrc: 'images/works/8-2.JPG',
+        middleSrc: 'images/works/8-2.webp',
         middleTitle: 'ПРОИГРЫШ. 2',
-        rightSrc: 'images/works/8-3.JPG',
+        rightSrc: 'images/works/8-3.webp',
         rightTitle: 'ПИОНЫ',
     },
     {
-        leftSrc: 'images/works/9-1.JPG',
+        leftSrc: 'images/works/9-1.webp',
         leftTitle: 'ЗАВТРА',
-        middleSrc: 'images/works/9-2.JPG',
+        middleSrc: 'images/works/9-2.webp',
         middleTitle: 'ЛИМОНЫ',
-        rightSrc: 'images/works/9-3.JPG',
+        rightSrc: 'images/works/9-3.webp',
         rightTitle: 'ПРИВЯЗАН',
     },
     {
-        leftSrc: 'images/works/10-1.JPG',
+        leftSrc: 'images/works/10-1.webp',
         leftTitle: 'ПРОИГРЫШ. 3',
-        middleSrc: 'images/works/10-2.PNG',
+        middleSrc: 'images/works/10-2.webp',
         middleTitle: 'ГОРОД',
-        rightSrc: 'images/works/10-3.JPG',
+        rightSrc: 'images/works/10-3.webp',
         rightTitle: 'ЛЕТАЛ',
     },
 ];
@@ -272,7 +272,7 @@ const imagePacks = [
         background-color: black;
 
         .bg_img {
-            content: url('@/public/mobile/images/index/bg.png');
+            content: url('@/public/mobile/images/index/bg.webp');
             animation: none;
         }
 
