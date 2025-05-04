@@ -6,7 +6,7 @@
                 <h1 class="index__initials">К.М.</h1>
                 <h2 class="index__subheader">АВТОРСКИЕ КАРТИНЫ НА ЗАКАЗ</h2>
             </header>
-            <main class="index__menu">
+            <nav class="index__menu">
                 <IndexMenuButton
                     svgPath="images/index/price.svg"
                     text="Прайс"
@@ -22,8 +22,8 @@
                     text="F.A.Q."
                     @click="lenis?.scrollTo('#faq', { duration: 1, easing: (t) => t })"
                 />
-            </main>
-            <footer class="index__socials">
+            </nav>
+            <div class="index__socials">
                 <a
                     href="https://t.me/exaggerate_escapism"
                     class="icon" target="_blank"
@@ -39,10 +39,59 @@
                 >
                     <img src="@/public/images/index/vk.svg" />
                 </a>
-            </footer>
+            </div>
         </div>
     </section>
-    <section id="price" class="price"></section>
+    <section id="price" class="price">
+        <h2>ПРАЙС</h2>
+        <div class="formats-line">
+            <div class="formats-line__contacts">
+                <h3>Для заказа пишите</h3>
+                <a
+                    href="https://t.me/exaggerate_escapism"
+                    class="icon" target="_blank"
+                    title="Телеграм канал"
+                >
+                    <img src="@/public/images/index/tg.svg" />
+                </a>
+            </div>
+            <div class="formats-line__examples">
+                <PricesFormatExample 
+                    picSrc="images/index/prices/scissors.png"
+                    :price=price.small
+                />
+                <PricesFormatExample 
+                    picSrc="images/index/prices/teeth.png"
+                    :price=price.mid
+                />
+                <PricesFormatExample 
+                    picSrc="images/index/prices/flowers.png"
+                    :price=price.big
+                />
+            </div>
+        </div>
+        <div class="materials">
+            <h3>Материалы:</h3>
+            <div class="materials__list">
+                <div class="item">
+                    <p class="title">Темпера</p>
+                    <img src="@/public/images/index/prices/tempera.webp" />
+                </div>
+                <div class="item">
+                    <p class="title">Акрил</p>
+                    <img src="@/public/images/index/prices/acrylic.webp" />
+                </div>
+                <div class="item">
+                    <p class="title">Пастель</p>
+                    <img src="@/public/images/index/prices/pastel.webp" />
+                </div>
+                <div class="item">
+                    <p class="title">Микс</p>
+                    <img src="@/public/images/index/prices/mixed.webp" />
+                </div>
+            </div>
+        </div>
+    </section>
     <section id="faq" class="faq"></section>
 </template>
 
@@ -54,6 +103,12 @@ definePageMeta({
 })
 
 const lenis = inject<Ref<Lenis | null>>('lenis');
+
+const price = {
+    small: '10 000 - 12 000',
+    mid: '17 000',
+    big: '25 000',
+};
 
 </script>
 
