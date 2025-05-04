@@ -28,5 +28,7 @@ const props = defineProps({
 </script>
 
 <style lang="scss">
-
+.painting-example {
+    width: fit-content;
+}
 </style>

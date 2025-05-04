@@ -43,14 +43,14 @@
         </div>
     </section>
     <section id="price" class="price">
-        <h2>ПРАЙС</h2>
+        <h2 class="price__header">ПРАЙС</h2>
         <div class="formats-line">
             <div class="formats-line__contacts">
                 <h3>Для заказа пишите</h3>
                 <a
                     href="https://t.me/exaggerate_escapism"
-                    class="icon" target="_blank"
-                    title="Телеграм канал"
+                    class="tg_icon" target="_blank"
+                    title="Телеграм"
                 >
                     <img src="@/public/images/index/tg.svg" />
                 </a>
@@ -113,6 +113,13 @@ const price = {
 </script>
 
 <style lang="scss">
+body {
+    --bg-color: #bc7109;
+    --accent-color: #ffda8c;
+
+    font-family: 'Montserrat';
+}
+
 section {
     position: relative;
     width: 100%;
@@ -124,13 +131,11 @@ section {
 }
 
 .index {
-    --accent-color: #ffda8c;
     --indent: 5rem;
 
     position: fixed;
     height: 100dvh;
-    background-color: #bc7109;
-    font-family: 'Montserrat';
+    background-color: var(--bg-color);
     z-index: 0;
 
     .bg_img {
@@ -230,138 +235,47 @@ section {
     }
 }
 
-.works {
-
-    &__section {
-        height: 95dvh;
+.price {
+    height: fit-content;
+    background-color: var(--bg-color);
+    padding: 3rem;
+    
+    &__header {
+        font-size: 10rem;
+        color: var(--accent-color);
+        font-size: 18rem;
     }
 
-    &__first {
-        top: 100dvh;
-        background-color: #5f5f28;
-        display: grid;
-        grid-template-columns: 1.2fr 1fr 1fr;
-        grid-template-rows: 1.1fr 1fr;
-        grid-template-areas:
-            "sadman swampsound frogs"
-            "sadman weep frogs";
+    h3 {
+        font-size: 3.5rem;
+        color: var(--accent-color);
+    }
 
-        .cell {
-            position: relative;
-            width: 100%;
-            height: 100%;
-            overflow: hidden;
-        }
-
+    .tg_icon {
         img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .sadman {
-            grid-area: sadman;
-        }
-
-        .swampsound {
-            grid-area: swampsound;
-        }
-
-        .weep {
-            grid-area: weep;
-            padding: 24px;
-
-            img {
-                object-fit: contain;
-            }
-        }
-
-        .frogs {
-            grid-area: frogs;
+            width: 10rem;
         }
     }
 
-    &__second {
-        background-color: #1d1f45;
+    .formats-line {
         display: flex;
+        // justify-content: space-around;
         justify-content: space-between;
+        // gap: 5rem;
 
-        .second-left {
-            width: 100%;
-            margin: 3rem;
-            padding-right: 5rem;
+        .formats-line__contacts {
             display: flex;
             flex-direction: column;
-            justify-content: space-between;
             align-items: center;
             gap: 2rem;
-
-            &__top {
-                width: 100%;
-                text-align: center;
-            }
-
-            &__bottom {
-                display: flex;
-                align-items: center;
-                gap: 20rem;
-            }
         }
 
-        .lemons {
-            width: 26%;
-        }
-
-        .scissors {
-            width: 32rem;
-        }
-
-        .bluesound {
-            width: 55rem;
-        }
-    }
-
-    &__third {
-        background-color: #c2614e;
-        display: flex;
-        justify-content: space-between;
-
-        .third-right {
+        .formats-line__examples {
             width: 100%;
-            margin: 3rem;
-            padding-right: 5rem;
             display: flex;
-            flex-direction: column;
             justify-content: space-between;
-
-            &__top {
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-            }
-
-            &__bottom {
-                text-align: center;
-            }
-        }
-
-        .serious {
-            width: 32rem;
-        }
-
-        .redsound {
-            width: 55rem;
-        }
-
-        .alkash {
-            width: 55rem;
         }
     }
-}
-
-.price {
-    height: 100dvh;
-    background: linear-gradient(red, white);
 }
 
 .faq {
