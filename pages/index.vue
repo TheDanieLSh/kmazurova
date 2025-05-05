@@ -26,7 +26,7 @@
                 </div>
                 <a
                     class="menu__gallery-link"
-                    href="/works"
+                    :href="config.routerBase + 'works'"
                 >
                     Галерея
                 </a>
@@ -116,6 +116,7 @@ definePageMeta({
     layout: 'lenis',
 })
 
+const config = useRuntimeConfig();
 const lenis = inject<Ref<Lenis | null>>('lenis');
 
 const price = {
