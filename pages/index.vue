@@ -7,21 +7,29 @@
                 <h2 class="index__subheader">АВТОРСКИЕ КАРТИНЫ НА ЗАКАЗ</h2>
             </header>
             <nav class="index__menu">
-                <IndexMenuButton
-                    svgPath="images/index/price.svg"
-                    text="Прайс"
-                    @click="lenis?.scrollTo('#price', { duration: 1, easing: (t) => t })"
-                />
-                <IndexMenuButton
-                    svgPath="images/index/chat.svg"
-                    text="Задать вопрос"
-                    link="https://t.me/km_creator"
-                />
-                <IndexMenuButton
-                    svgPath="images/index/faq.svg"
-                    text="F.A.Q."
-                    @click="lenis?.scrollTo('#faq', { duration: 1, easing: (t) => t })"
-                />
+                <div class="menu__main">
+                    <IndexMenuButton
+                        svgPath="images/index/price.svg"
+                        text="Прайс"
+                        @click="lenis?.scrollTo('#price', { duration: 1, easing: (t) => t })"
+                    />
+                    <IndexMenuButton
+                        svgPath="images/index/chat.svg"
+                        text="Задать вопрос"
+                        link="https://t.me/km_creator"
+                    />
+                    <IndexMenuButton
+                        svgPath="images/index/faq.svg"
+                        text="F.A.Q."
+                        @click="lenis?.scrollTo('#faq', { duration: 1, easing: (t) => t })"
+                    />
+                </div>
+                <a
+                    class="menu__gallery-link"
+                    href="/works"
+                >
+                    Галерея
+                </a>
             </nav>
             <div class="index__socials">
                 <a
@@ -48,7 +56,7 @@
             <div class="formats-line__contacts">
                 <h3 class="contacts-text">Для заказа<br />пишите</h3>
                 <a
-                    href="https://t.me/exaggerate_escapism"
+                    href="https://t.me/km_creator"
                     class="tg_icon" target="_blank"
                     title="Телеграм"
                 >
@@ -209,7 +217,31 @@ section {
 
     &__menu {
         display: flex;
-        gap: 2rem;
+        flex-direction: column;
+        gap: 3rem;
+        width: fit-content;
+
+        .menu {
+
+            &__main {
+                display: flex;
+                gap: 2rem;
+            }
+            &__gallery-link {
+                width: 21.5rem;
+                height: 4rem;
+                background-color: black;
+                padding: 1rem;
+                text-align: center;
+                border-radius: 3rem;
+                font-size: 1.5rem;
+
+                &:hover {
+                    scale: 1.1;
+                    transition: 0.2s;
+                }
+            }
+        }
     }
 
     &__socials {
