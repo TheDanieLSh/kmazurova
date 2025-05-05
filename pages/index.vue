@@ -46,7 +46,7 @@
         <h2 class="price__header">ПРАЙС</h2>
         <div class="formats-line">
             <div class="formats-line__contacts">
-                <h3>Для заказа пишите</h3>
+                <h3 class="contacts-text">Для заказа<br />пишите</h3>
                 <a
                     href="https://t.me/exaggerate_escapism"
                     class="tg_icon" target="_blank"
@@ -59,14 +59,20 @@
                 <PricesFormatExample 
                     picSrc="images/index/prices/scissors.png"
                     :price=price.small
+                    height="50-60 см"
+                    width="50-60 см"
                 />
                 <PricesFormatExample 
                     picSrc="images/index/prices/teeth.png"
                     :price=price.mid
+                    height="50-80 см"
+                    width="70-100 см"
                 />
                 <PricesFormatExample 
                     picSrc="images/index/prices/flowers.png"
                     :price=price.big
+                    height="90-120 см"
+                    width="90-120 см"
                 />
             </div>
         </div>
@@ -238,7 +244,7 @@ section {
 .price {
     height: fit-content;
     background-color: var(--bg-color);
-    padding: 3rem;
+    padding: 0.3rem 2rem;
     
     &__header {
         font-size: 10rem;
@@ -246,34 +252,42 @@ section {
         font-size: 18rem;
     }
 
-    h3 {
-        font-size: 3.5rem;
-        color: var(--accent-color);
-    }
-
     .tg_icon {
         img {
             width: 10rem;
+
+            &:hover {
+                scale: 1.1;
+                transition: 0.2s;
+            }
         }
     }
 
     .formats-line {
         display: flex;
-        // justify-content: space-around;
-        justify-content: space-between;
-        // gap: 5rem;
+
+        .contacts-text {
+            font-size: 3.5rem;
+            color: var(--accent-color);
+        }
 
         .formats-line__contacts {
             display: flex;
             flex-direction: column;
             align-items: center;
+            justify-content: center;
             gap: 2rem;
+            width: 100%;
+            text-align: center;
+            transform: translateY(-10%);
         }
 
         .formats-line__examples {
             width: 100%;
             display: flex;
-            justify-content: space-between;
+            justify-content: flex-end;
+            align-items: flex-end;
+            gap: 5rem;
         }
     }
 }
