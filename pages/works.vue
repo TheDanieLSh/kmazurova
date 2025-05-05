@@ -124,9 +124,9 @@ const imagePacks = [
 <style lang="scss">
 
 .works {
-
     &__section {
         height: 95dvh;
+        background-color: #bc7109;
     }
 
     &__first {
