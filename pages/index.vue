@@ -128,13 +128,6 @@ const price = {
 </script>
 
 <style lang="scss">
-body {
-    --bg-color: #bc7109;
-    --accent-color: #ffda8c;
-
-    font-family: 'Montserrat';
-}
-
 section {
     position: relative;
     width: 100%;
@@ -237,10 +230,7 @@ section {
                 border-radius: 3rem;
                 font-size: 1.5rem;
 
-                &:hover {
-                    scale: 1.1;
-                    transition: 0.2s;
-                }
+                @include stdButtonHover;
             }
         }
     }
@@ -257,9 +247,7 @@ section {
             height: 6rem;
             transition: 0.2s;
 
-            &:hover {
-                transform: scale(1.1);
-            }
+            @include stdButtonHover;
 
             img {
                 width: 100%;
@@ -289,10 +277,7 @@ section {
         img {
             width: 10rem;
 
-            &:hover {
-                scale: 1.1;
-                transition: 0.2s;
-            }
+            @include stdButtonHover;
         }
     }
 
