@@ -54,7 +54,7 @@
         <h2 class="price__header">ПРАЙС</h2>
         <div class="formats-line">
             <div class="formats-line__contacts">
-                <h3 class="contacts-text">Для заказа<br />пишите</h3>
+                <h3 class="contacts-text">Для заказа пишите</h3>
                 <a
                     href="https://t.me/km_creator"
                     class="tg_icon" target="_blank"
@@ -266,6 +266,7 @@ section {
     height: fit-content;
     background-color: var(--bg-color);
     padding: 0.3rem 2rem;
+    box-shadow: 0 -0.4rem 0.6rem -0.4rem rgba(0, 0, 0, 0.3);
     
     &__header {
         font-size: 10rem;
@@ -284,20 +285,20 @@ section {
     .formats-line {
         display: flex;
 
-        .contacts-text {
-            font-size: 3.5rem;
-            color: var(--accent-color);
-        }
-
         .formats-line__contacts {
             display: flex;
             flex-direction: column;
-            align-items: center;
-            justify-content: center;
+            justify-content: flex-start;
             gap: 2rem;
             width: 100%;
-            text-align: center;
             transform: translateY(-10%);
+
+            .contacts-text {
+                font-size: 3.5rem;
+                color: var(--accent-color);
+
+                padding-top: 6.5rem;
+            }
         }
 
         .formats-line__examples {

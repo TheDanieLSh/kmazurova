@@ -39,6 +39,7 @@ defineProps({
     position: relative;
     width: fit-content;
     font-size: 2rem;
+    color: var(--accent-color);
 
     &::before {
         content: var(--height);
