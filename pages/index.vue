@@ -384,6 +384,13 @@ section {
 
         &__menu {
             flex-wrap: wrap;
+            
+            .menu {
+
+                &__gallery-link {
+                    background-color: var(--bg-color);
+                }
+            }
         }
     }
 }
