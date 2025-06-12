@@ -62,6 +62,8 @@ defineProps({
 
     &__price {
         text-align: center;
+        color: black;
+        font-weight: bold;
     }
 }
 </style>

@@ -85,23 +85,27 @@
             </div>
         </div>
         <div class="materials">
-            <h3>Материалы:</h3>
+            <h3 class="materials__header">Материалы:</h3>
             <div class="materials__list">
                 <div class="item">
                     <p class="title">Темпера</p>
                     <img src="@/public/images/index/prices/tempera.webp" />
+                    <div></div>
                 </div>
                 <div class="item">
                     <p class="title">Акрил</p>
                     <img src="@/public/images/index/prices/acrylic.webp" />
+                    <div></div>
                 </div>
                 <div class="item">
                     <p class="title">Пастель</p>
                     <img src="@/public/images/index/prices/pastel.webp" />
+                    <div></div>
                 </div>
                 <div class="item">
                     <p class="title">Микс</p>
                     <img src="@/public/images/index/prices/mixed.webp" />
+                    <div></div>
                 </div>
             </div>
         </div>
@@ -291,7 +295,7 @@ section {
             justify-content: flex-start;
             gap: 2rem;
             width: 100%;
-            transform: translateY(-10%);
+            transform: translateY(-10%) translateX(2%);
 
             .contacts-text {
                 font-size: 3.5rem;
@@ -307,6 +311,41 @@ section {
             justify-content: flex-end;
             align-items: flex-end;
             gap: 5rem;
+        }
+    }
+
+    .materials {
+
+        &__header {
+            color: var(--accent-color);
+            font-size: 5rem;
+            margin-bottom: 2rem;
+        }
+
+        &__list {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: nowrap;
+            gap: 5rem;
+
+            .item {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: space-between;
+                gap: 2rem;
+                
+                p {
+                    font-size: 3rem;
+                    color: black;
+                    font-weight: bold;
+                }
+
+                img {
+                    width: 100%;
+                    object-fit: cover;
+                }
+            }
         }
     }
 }
